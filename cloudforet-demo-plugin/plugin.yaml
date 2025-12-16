@@ -1,0 +1,9 @@
+name: Go Cloudforet Demo Plugin
+image: tthtlc/cloudforet-demo-plugin:latest
+resource_type: inventory.Collector
+provider: demo
+capability: {}
+labels: ["Demo"]
+tags:
+  version: "1.0.0"
+

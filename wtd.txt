@@ -1,0 +1,203 @@
+
+portfolio:
+https://docs.spaceone.megazone.io/developers/plugin/inventory/develop-plugin/
+https://github.com/spaceone-dev/plugin-portfolio-inven-collector.git
+
+
+https://console4-v1-api.example.com/api/reflection
+
+https://console4-v2-api.example.com/console-api/api/reflection
+
+https://cloudforet.io/docs/developers/api_sdk/api/
+https://cloudforet.io/api-doc/
+
+domain_id, provider creation, plugin created vs spacectl vs managed_resource, example collector etc.
+
+ Check auth part... Who collect svc account
+ Where are auth secrets stored
+ Can one plugin access the screts of another
+ Other than servers and cost analysys what else
+ Is the mongodb by inven and cost anal shared
+ https://www.facebook.com/share/1AeymE9nUy/
+ secrets and how it works in cloudforet
+ nutanix simulator:   client and server part.
+ what is services????
+ Simulate 9440
+
+https://cloudforet.io/docs/guides/asset-inventory/quick-start/
+
+
+https://cloudforet.io/docs/guides/cost-explorer/
+
+
+https://cloudforet.io/docs/guides/cost-explorer/cost-analysis/
+
+https://cloudforet.io/docs/guides/admin-mode/data-sources/
+
+
+https://cloudforet.io/docs/guides/admin-mode/domain-settings/
+
+
+ERROR: Required parameter. (key = domain_id)
+
+
+
+https://github.com/memodb-io/Acontext?utm_source=aiengineering.beehiiv.com&utm_medium=newsletter&utm_campaign=harvard-released-a-free-book-on-ml-systems-engineering&_bhlid=1e18febfbdd01b60fc9d82277c7346f2c6c6b1a8
+
+
+Targets:
+
+
+
+https://cloudforet.io/docs/setup_operation/configuration/_print/.
+https://docs.spaceone.megazone.io/developers/api-guide/
+https://docs.spaceone.megazone.io/docs/guide-details/user-mode/user-access/app/.
+https://docs.spaceone.megazone.io/integrations/aws/aws-setting/access-key/.
+https://github.com/cloudforet-io/plugin-azure-identity-account-collector.
+https://github.com/cloudforet-io/spaceone?utm_source=chatgpt.com.
+https://spaceone-dev.gitbook.io/spaceone-apis/notification/v1/protocol.
+
+https://cloudforet.io/docs/developers/plugins/developer_guide/plugin_debugging/.
+https://cloudforet.io/docs/developers/plugins/developer_guide/plugin_register/.
+https://cloudforet.io/docs/introduction/release_notes/release_note_list/_print/.
+https://cloudforet.io/ko/docs/introduction/release_notes/release_note_list/v1.9.0/.
+https://github.com/orgs/cloudforet-io/discussions/139.
+https://spaceone-dev.gitbook.io/spaceone-apis/repository/v1/plugin#register
+
+setup nutanix simulator in docker
+Hello world plugin in Go that just log a line in kubernetes.
+Hello world plugin + update persistent database + log a line
+Nutanix Openapi json => generate inventory enumeration REST API request.
+Nutanix Openapi json => generate inventory enumeration REST API response.
+Hello world plugin + Nutanix REST API request for inventory enumeration
+Hello world plugin + Nutanix REST API request for inventory enumeration + update COLLECTION persistent database
+MAY NOT BE NEEDED:   understand in depth for cost analysis and inventory architecture 
+understand in depth GCP plugin for inventory enumeration
+understand in depth AWS plugin for inventory enumeration
+understand in depth Azure plugin for inventory enumeration
+Identify key concepts and REST APIs ⇒ expand out functionalities to other enumeration.
+Build command line or direct REST APIs (via gRPC + Go) to extract out from Cloudforet MongoDB 
+setup client page to render the output from direct MongoDB extraction.
+
+
+https://www.nutanix.dev/api-reference-v4/
+https://www.nutanixbible.com/pdf/19a-rest-apis.pdf
+
+https://portal.nutanix.com/page/documents/solutions/details?targetId=TN-2209-Nutanix-v4-API-Backup-Solutions:nutanix-v4-api-software-development-kit.html
+
+
+https://portal.nutanix.com/page/documents/solutions/details?targetId=TN-2209-Nutanix-v4-API-Backup-Solutions:nutanix-v4-api-authentication-and-authorization.html
+https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Security-Guide:ssp-ssp-role-based-access-control-pc-c.html
+
+https://developers.nutanix.com/api-reference?namespace=volumes&version=v4.0#tag/VolumeGroups/operation/listVolumeDisksByVolumeGroupId
+
+
+package main
+
+import (
+    "fmt"
+    "time"
+    "github.com/nutanix/ntnx-api-golang-clients/volumes-go-client/v4/api"
+    "github.com/nutanix/ntnx-api-golang-clients/volumes-go-client/v4/client"
+    import1 "github.com/nutanix/ntnx-api-golang-clients/volumes-go-client/v4/models/volumes/v4/config"
+)
+
+var (
+    ApiClientInstance *client.ApiClient
+    VolumeGroupsApiInstance *api.VolumeGroupsApi
+)
+
+func main() {
+    ApiClientInstance = client.NewApiClient()
+    // IPv4/IPv6 address or FQDN of the cluster
+    ApiClientInstance.Host = "localhost"
+    // Port to which to connect to
+    ApiClientInstance.Port = 9440
+    // Interval in ms to use during retry attempts
+    ApiClientInstance.RetryInterval = 5 * time.Second
+    // Max retry attempts while reconnecting on a loss of connection
+    ApiClientInstance.MaxRetryAttempts = 5
+    // UserName to connect to the cluster
+    ApiClientInstance.Username = "username"
+    // Password to connect to the cluster
+    ApiClientInstance.Password = "password"
+    // Please add authorization information here if needed.
+    VolumeGroupsApiInstance = api.NewVolumeGroupsApi(ApiClientInstance)
+
+    
+    volumeGroupExtId := "a63ED1A5-078f-6CBb-B4D2-ADa3fD8F6cc1"
+    
+    page_ := 0
+    
+    limit_ := 50
+
+
+    response, error := VolumeGroupsApiInstance.ListVolumeDisksByVolumeGroupId(&volumeGroupExtId, &page_, &limit_, nil, nil, nil)
+    if error != nil {
+        fmt.Println(error)
+        return
+    }
+    data, _ := response.GetData().([]import1.VolumeDisk)
+    fmt.Println(data)
+
+}
+
+
+
+
+https://developers.nutanix.com/api-reference?namespace=volumes&version=v4.0#tag/VolumeGroups/operation/getVolumeGroupById
+
+
+
+
+
+
+
+get nutanix to emulate enumeration of resources via REST APIs.
+command line and REST APIs approacho to nutanix resources enumeration.
+
+nutanix running in docker.
+
+cloudforet REST APIs /spacectl approach to resources enumeration in cloudforet.
+
+database extraction from mongo db via Cloudforet REST APIs.
+
+get nutanix integration up and running, meaning inventory enumeration etc.
+
+qs:  is the inventory enumeration the same for Azure and AWS and GCP?   where is the diff part (where cloud specific api are used) and where is the common part.
+
+from cloudforet or through cloudforet API, find a way to access the database that stored all the inventory item.
+
+https://github.com/cloudforet-io/python-core
+
+https://github.com/cloudforet-io/plugin-azure-inven-collector.git
+
+https://github.com/cloudforet-io/cloudforet.git
+
+https://github.com/cloudforet-io/plugin-aws-cloud-service-inven-collector.git
+
+https://github.com/cloudforet-io/dashboard.git
+
+https://github.com/cloudforet-io/console-api-v2.git
+
+https://cloudforet.io/docs/concepts/inventory/colletor/.
+https://github.com/langchain-ai/deepagents.
+https://philprime.dev/blog/2025/11/23/new-k3s-agent-node
+https://traefik.io/blog/migrate-from-ingress-nginx-to-traefik-now.
+https://kueue.sigs.k8s.io/
+
+
+
+
+https://last9.io/blog/how-prometheus-exporters-work-with-opentelemetry/
+https://last9.io/blog/kube-prometheus-stack/.
+https://last9.io/blog/last9-gartner-cool-vendor/#act-1-%E2%80%94-fix-the-foundation-unified-data-at-scale.
+https://last9.io/blog/last9-gartner-cool-vendor/#act-2-%E2%80%94-agentic-ops-from-automation-to-autonomy.
+https://last9.io/blog/top-web-application-performance-monitoring-tools/.
+
+
+
+https://cloudforet.io/docs/concepts/inventory/colletor/.
+https://github.com/langchain-ai/deepagents.
+https://philprime.dev/blog/2025/11/23/new-k3s-agent-node
+https://traefik.io/blog/migrate-from-ingress-nginx-to-traefik-now.

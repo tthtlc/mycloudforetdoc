@@ -1,0 +1,3136 @@
+{
+  "apis": [
+    {
+      "path": "/statistics/resource/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/cloud-service-resources",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/cloud-service-summary",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/daily-cloud-service-summary",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/project-page",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/top-project",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/daily-job-summary",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/service-account-by-provider",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/daily-update-cloud-service",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/service-account-summary",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/resource-by-region",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/cloud-service-by-region",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/power-scheduler-resources",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/power-scheduler-schedules",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/secret-count",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/trusted-advisor-summary",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/trusted-advisor-by-project",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/phd-summary",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/phd-events",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/phd-count-by-type",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/topic/billing-summary",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/history/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/history/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/history/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/add",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain/verify-plugin",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain-owner/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain-owner/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain-owner/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/domain-owner/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/member/add",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/member/modify",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/member/remove",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/member/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/list-projects",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project-group/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/member/add",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/member/modify",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/member/remove",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/member/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/tree",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/project/tree/search",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/policy/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/policy/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/policy/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/policy/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/policy/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/policy/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/set-required-actions",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/update-role",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/find",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/sync",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/user/get-ip",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/api-key/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/api-key/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/api-key/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/api-key/allowed-hosts/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/api-key/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/api-key/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/api-key/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/api-key/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/token/issue",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/token/refresh",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/provider/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/provider/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/provider/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/provider/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/provider/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/provider/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/service-account/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/service-account/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/service-account/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/service-account/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/service-account/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/service-account/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/service-account/member/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/service-account/change-project",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/change-project",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/identity/endpoint/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/repository/register",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/repository/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/repository/deregister",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/repository/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/repository/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/repository/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/plugin/register",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/plugin/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/plugin/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/plugin/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/plugin/deregister",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/plugin/get-versions",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/plugin/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/plugin/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/plugin/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/schema/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/schema/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/schema/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/schema/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/schema/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/schema/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/policy/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/policy/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/policy/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/policy/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/policy/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/repository/policy/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret/update-data",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/update-data",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret-group/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret-group/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret-group/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret-group/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret-group/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret-group/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret-group/secret/add",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/secret/secret-group/secret/remove",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/region/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/region/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/region/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/region/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/region/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/region/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/change-region",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/change-project",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/member/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/get-data",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/analyze",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-tag/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-tag/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/analyze",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/resource-group/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/resource-group/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/resource-group/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/resource-group/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/resource-group/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/resource-group/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/update-plugin",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/verify-plugin",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/collect",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/plugin/verify",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/schedule/add",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/schedule/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/schedule/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/schedule/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/schedule/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/collector/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/job/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/job/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/job/get-job-progress",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/job-task/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/job-task/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/change-history/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/change-history/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/note/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/note/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/note/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/note/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/note/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/inventory/note/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/plugin/supervisor/register",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/plugin/supervisor/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/plugin/supervisor/deregister",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/plugin/supervisor/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/plugin/supervisor/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/plugin/supervisor/plugin/recover",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/plugin/supervisor/plugin/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/plugin/supervisor/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/plugin/supervisor/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/plugin/supervisor/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/register",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/deregister",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/plugin/verify",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/log/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/metric/get-data",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/metric/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/update-plugin",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/set-default",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/update-state",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/merge",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/snooze",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/add-responder",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/remove-responder",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/note/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/note/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/note/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/note/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/note/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/note/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/maintenance-window/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/maintenance-window/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/maintenance-window/close",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/maintenance-window/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/maintenance-window/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/maintenance-window/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/change-order",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/event/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/dashboard/alert-count-by-state",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/dashboard/alert-history-summary",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/dashboard/daily-alert-history",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/dashboard/alert-by-project",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/dashboard/current-project-status",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/dashboard/top5-project-activity-list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/monitoring/dashboard/top5-project-activity-alert-details",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/user-config/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/user-config/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/user-config/set",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/user-config/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/user-config/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/user-config/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/user-config/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/domain-config/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/domain-config/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/domain-config/set",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/domain-config/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/domain-config/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/domain-config/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/config/domain-config/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/domain/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/domain/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/domain/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/domain/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/append-resource-group",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/update-resource-group",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/remove-resource-group",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/get-schedule-state",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/get-schedule-status",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/get-supported-resource-types",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/get-schedule-resource-groups",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/get-create-schedule-resource-groups",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule/set-schedule-resource-groups",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule-rule/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule-rule/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule-rule/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule-rule/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule-rule/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/schedule-rule/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/controller/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/controller/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/controller/update-plugin",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/controller/verify-plugin",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/controller/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/controller/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/controller/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/controller/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/job/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/job/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/job-task/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/power-scheduler/job-task/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/protocol/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/protocol/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/protocol/update-plugin",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/protocol/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/protocol/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/protocol/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/protocol/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/protocol/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/protocol/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/set-subscription",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/set-schedule",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/set-subscription",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/set-schedule",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/notification/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/notification/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/notification/set-read",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/notification/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/notification/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/notification/notification/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/register",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/plugin/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/plugin/verify",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/deregister",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/schedule/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/schedule/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/schedule/enable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/schedule/disable",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/schedule/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/schedule/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/schedule/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/schedule/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/exchange-rate/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/exchange-rate/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/exchange-rate/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/exchange-rate/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/analyze",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/change-order",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/create/template",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/set-notification",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget-usage/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget-usage/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget-usage/analyze",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/public-dashboard/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/public-dashboard/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/public-dashboard/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/public-dashboard/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/public-dashboard/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/public-dashboard/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/user-dashboard/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/user-dashboard/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/user-dashboard/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/user-dashboard/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/user-dashboard/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/user-dashboard/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/custom-widget/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/custom-widget/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/custom-widget/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/custom-widget/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/custom-widget/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/cost-analysis/custom-widget/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/board/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/board/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/board/set_categories",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/board/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/board/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/board/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/board/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/post/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/post/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/post/send-notification",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/post/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/post/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/post/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/board/post/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/file-manager/file/add",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/file-manager/file/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/file-manager/file/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/file-manager/file/get-download-url",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/file-manager/file/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/file-manager/file/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/file-manager/file/stat",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/excel/export",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/excel/download",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/add-ons/autocomplete/resource",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/autocomplete/distinct",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/page-discovery/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/page-schema/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/page-schema/update",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/favorite/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/favorite/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/favorite/delete",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/favorite/order-list/set",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/favorite/order-list/get",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/recent/visit/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/recent/visit/list",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/recent/search/create",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/add-ons/recent/search/list",
+      "methods": [
+        "POST"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+
+https://cloud.oracle.com/compute/instances?region=ca-toronto-1
+
+Actions
+
+Name
+State
+Public IP
+Private IP
+Shape
+OCPU count
+Memory (GB)
+Availability domain
+Fault domain
+Created
+
+instance-20251030-2338
+Running
+40.233.84.132
+10.0.0.90
+VM.Standard.E2.2
+2
+16
+AD-1
+FD-3
+Oct 30, 2025, 15:41 UTC
+
+instance-20251030-1046
+Running
+40.233.84.226
+10.0.0.192
+VM.Standard.E2.2
+2
+16
+AD-1
+FD-3
+Oct 30, 2025, 02:50 UTC
+
+instance-20251028-1358
+Running
+140.238.144.15
+10.0.0.37
+VM.Standard.E2.2
+2
+16
+AD-1
+FD-3
+Oct 28, 2025, 06:01 UTC
+
+instance-20251024-1642
+Running
+40.233.72.151
+10.0.0.113
+VM.Standard.E2.2
+2
+16
+AD-1
+FD-3

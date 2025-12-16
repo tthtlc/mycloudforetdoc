@@ -1,0 +1,3795 @@
+{
+  "apis": [
+    {
+      "path": "/openapi.json",
+      "name": "openapi",
+      "method": [
+        "HEAD",
+        "GET"
+      ]
+    },
+    {
+      "path": "/docs",
+      "name": "swagger_ui_html",
+      "method": [
+        "HEAD",
+        "GET"
+      ]
+    },
+    {
+      "path": "/docs/oauth2-redirect",
+      "name": "swagger_ui_redirect",
+      "method": [
+        "HEAD",
+        "GET"
+      ]
+    },
+    {
+      "path": "/redoc",
+      "name": "redoc_html",
+      "method": [
+        "HEAD",
+        "GET"
+      ]
+    },
+    {
+      "path": "/console-api/api/reflection",
+      "name": "api_reflection",
+      "method": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/console-api/extension/auth/basic",
+      "name": "Auth.basic",
+      "method": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/console-api/extension/auth/saml/{domain_id}",
+      "name": "Auth.saml",
+      "method": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/console-api/extension/auth/saml/{domain_id}/metadata",
+      "name": "Auth.saml_sp_metadata",
+      "method": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/console-api/extension/agent/kubernetes",
+      "name": "Agent.kubernetes",
+      "method": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/{service}/docs",
+      "name": "docs",
+      "method": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/update-secret-data",
+      "name": "update-secret-data",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/sync",
+      "name": "sync",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/trusted-account/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/agent/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/agent/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/agent/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/agent/regenerate",
+      "name": "regenerate",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/agent/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/agent/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/agent/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project-group/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project-group/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project-group/change-parent-group",
+      "name": "change-parent-group",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project-group/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project-group/add-users",
+      "name": "add-users",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project-group/remove-users",
+      "name": "remove-users",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project-group/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project-group/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project-group/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/token/issue",
+      "name": "issue",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/token/grant",
+      "name": "grant",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/app/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/app/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/app/generate-client-secret",
+      "name": "generate-client-secret",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/app/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/app/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/app/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/app/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/app/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/app/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/job/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/job/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/job/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/job/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace-user/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace-user/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace-user/find",
+      "name": "find",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace-user/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/workspace-user/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/provider/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/provider/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/provider/update-plugin",
+      "name": "update-plugin",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/provider/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/provider/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/provider/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/provider/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/external-auth/set",
+      "name": "set",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/external-auth/unset",
+      "name": "unset",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/external-auth/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/update-project-type",
+      "name": "update-project-type",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/change-project-group",
+      "name": "change-project-group",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/add-users",
+      "name": "add-users",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/remove-users",
+      "name": "remove-users",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/add-user-groups",
+      "name": "add-user-groups",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/remove-user-groups",
+      "name": "remove-user-groups",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/project/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/update-role",
+      "name": "update-role",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/role-binding/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-group/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-group/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-group/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-group/add-users",
+      "name": "add-users",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-group/remove-users",
+      "name": "remove-users",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-group/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-group/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-group/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/verify-email",
+      "name": "verify-email",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/disable-mfa",
+      "name": "disable-mfa",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/set-required-actions",
+      "name": "set-required-actions",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/service-account/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/service-account/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/service-account/update-secret-data",
+      "name": "update-secret-data",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/service-account/delete-secret-data",
+      "name": "delete-secret-data",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/service-account/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/service-account/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/service-account/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/service-account/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-profile/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-profile/verify-email",
+      "name": "verify-email",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-profile/confirm-email",
+      "name": "confirm-email",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-profile/reset-password",
+      "name": "reset-password",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-profile/enable-mfa",
+      "name": "enable-mfa",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-profile/disable-mfa",
+      "name": "disable-mfa",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-profile/confirm-mfa",
+      "name": "confirm-mfa",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-profile/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/user-profile/get-workspaces",
+      "name": "get-workspaces",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/domain/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/domain/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/domain/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/domain/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/domain/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/domain/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/domain/get-auth-info",
+      "name": "get-auth-info",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/domain/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/schema/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/schema/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/schema/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/schema/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/schema/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/schema/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/identity/endpoint/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric-data/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric-data/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric-data/analyze",
+      "name": "analyze",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector-rule/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector-rule/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector-rule/change-order",
+      "name": "change-order",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector-rule/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector-rule/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector-rules/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector-rules/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/region/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/region/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/region/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/region/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/region/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/region/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-stats/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-stats/analyze",
+      "name": "analyze",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-stats/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-type/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric-example/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric-example/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric-example/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric-example/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric-example/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric-example/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/job/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/job/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/job/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/job/analyze",
+      "name": "analyze",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/job/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector/update-plugin",
+      "name": "update-plugin",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector/verify-plugin",
+      "name": "verify-plugin",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/collector/collect",
+      "name": "collect",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/change-history/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/change-history/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric/run",
+      "name": "run",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric/test",
+      "name": "test",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/metric/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/note/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/note/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/note/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/note/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/note/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/note/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/export",
+      "name": "export",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/analyze",
+      "name": "analyze",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-query-set/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-query-set/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-query-set/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-query-set/run",
+      "name": "run",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-query-set/test",
+      "name": "test",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-query-set/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-query-set/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-query-set/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-query-set/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-query-set/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/job-task/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/job-task/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/job-task/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/job-task/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-report/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-report/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-report/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-report/send",
+      "name": "send",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-report/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-report/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/cloud-service-report/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/namespace/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/namespace/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/namespace/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/namespace/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/namespace/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/inventory/namespace/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/register",
+      "name": "register",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/update-plugin",
+      "name": "update-plugin",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/update-secret-data",
+      "name": "update-secret-data",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/verify-plugin",
+      "name": "verify-plugin",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/deregister",
+      "name": "deregister",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/sync",
+      "name": "sync",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/analyze",
+      "name": "analyze",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/job/cancel",
+      "name": "cancel",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/job/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/job/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/job/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/change-order",
+      "name": "change-order",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-rule/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-account/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-account/reset",
+      "name": "reset",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-account/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-account/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-account/analyze",
+      "name": "analyze",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/data-source-account/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-data/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-data/analyze",
+      "name": "analyze",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-data/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget-usage/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget-usage/analyze",
+      "name": "analyze",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget-usage/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report/send",
+      "name": "send",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report/get-url",
+      "name": "get-url",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-config/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-config/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-config/update-recipients",
+      "name": "update-recipients",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-config/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-config/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-config/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-config/run",
+      "name": "run",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-config/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-config/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-report-config/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/job-task/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/job-task/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/job-task/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/set-notification",
+      "name": "set-notification",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/budget/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/cost-analysis/cost-query-set/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/set-default",
+      "name": "set-default",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/escalation-policy/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/register",
+      "name": "register",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/deregister",
+      "name": "deregister",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/update-plugin",
+      "name": "update-plugin",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/verify-plugin",
+      "name": "verify-plugin",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/data-source/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/project-alert-config/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/metric/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/metric/get-data",
+      "name": "get-data",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/log/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/assign-user",
+      "name": "assign-user",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/alert/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/note/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/note/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/note/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/note/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/note/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/note/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/change-order",
+      "name": "change-order",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/event-rule/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/update-plugin",
+      "name": "update-plugin",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/verify-plugin",
+      "name": "verify-plugin",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/webhook/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/event/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/event/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/monitoring/event/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/notification/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/notification/set-read",
+      "name": "set-read",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/notification/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/notification/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/notification/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/set-schedule",
+      "name": "set-schedule",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/set-subscription",
+      "name": "set-subscription",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/user-channel/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/set-schedule",
+      "name": "set-schedule",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/set-subscription",
+      "name": "set-subscription",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/project-channel/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/protocol/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/protocol/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/protocol/update-plugin",
+      "name": "update-plugin",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/protocol/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/protocol/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/protocol/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/protocol/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/protocol/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/notification/protocol/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/repository/repository/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/repository/plugin/register",
+      "name": "register",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/repository/plugin/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/repository/plugin/deregister",
+      "name": "deregister",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/repository/plugin/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/repository/plugin/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/repository/plugin/get-versions",
+      "name": "get-versions",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/repository/plugin/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/repository/plugin/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/board/post/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/board/post/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/board/post/send-notification",
+      "name": "send-notification",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/board/post/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/board/post/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/board/post/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/board/post/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/domain-config/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/domain-config/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/domain-config/set",
+      "name": "set",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/domain-config/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/domain-config/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/domain-config/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/domain-config/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/workspace-config/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/workspace-config/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/workspace-config/set",
+      "name": "set",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/workspace-config/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/workspace-config/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/workspace-config/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/workspace-config/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/user-config/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/user-config/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/user-config/set",
+      "name": "set",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/user-config/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/user-config/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/user-config/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/config/user-config/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-widget/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-widget/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-widget/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-widget/load",
+      "name": "load",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-widget/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-widget/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-dashboard/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-dashboard/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-dashboard/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-dashboard/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-dashboard/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-dashboard/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-data-table/add",
+      "name": "add",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-data-table/transform",
+      "name": "transform",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-data-table/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-data-table/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-data-table/load",
+      "name": "load",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-data-table/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-data-table/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-dashboard/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-dashboard/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-dashboard/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-dashboard/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-dashboard/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-dashboard/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-folder/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-folder/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-folder/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-folder/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-folder/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/public-folder/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-data-table/add",
+      "name": "add",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-data-table/transform",
+      "name": "transform",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-data-table/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-data-table/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-data-table/load",
+      "name": "load",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-data-table/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-data-table/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-folder/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-folder/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-folder/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-folder/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-folder/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-folder/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-widget/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-widget/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-widget/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-widget/load",
+      "name": "load",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-widget/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/dashboard/private-widget/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/file-manager/file/add",
+      "name": "add",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/file-manager/file/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/file-manager/file/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/file-manager/file/get-download-url",
+      "name": "get-download-url",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/file-manager/file/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/file-manager/file/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/file-manager/file/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/plugin/plugin/get-plugin-metadata",
+      "name": "get-plugin-metadata",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/secret/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/secret/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/secret/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/secret/update-data",
+      "name": "update-data",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/secret/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/secret/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/secret/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/user-secret/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/user-secret/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/user-secret/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/user-secret/update-data",
+      "name": "update-data",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/user-secret/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/user-secret/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/user-secret/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/update-data",
+      "name": "update-data",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/secret/trusted-secret/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/add",
+      "name": "add",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/update",
+      "name": "update",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/enable",
+      "name": "enable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/disable",
+      "name": "disable",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/delete",
+      "name": "delete",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/get",
+      "name": "get",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/schedule/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/history/create",
+      "name": "create",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/history/list",
+      "name": "list",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/history/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/statistics/resource/stat",
+      "name": "stat",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/search/resource/search",
+      "name": "search",
+      "method": [
+        "post"
+      ]
+    },
+    {
+      "path": "/{service}/{resource}/{verb}",
+      "name": "Proxy.proxy_api",
+      "method": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/check",
+      "name": "check",
+      "method": [
+        "GET"
+      ]
+    }
+  ]
+}
