@@ -1,0 +1,52 @@
+plugin-google-cloud-inven-collector-xbmrfjudbtltnrcxq-5dbc4c5xw   1/1     Running            0                3h39m
+cloudforet-plugin   plugin-ms-teams-noti-protocol-lrlgtduaimhqwtq-ddb44fd64-qdgc6     1/1     Running            0                47h
+cloudforet-plugin   plugin-nutanix-inventory-jbkrfmuvfatbzfjl-576f4675b5-kq4wq        1/1     Running            0                19h
+cloudforet-plugin   plugin-nutanix-inventory-mrgltduzieivubn-7c5778b95-p8vdf          1/1     Running            0                19h
+cloudforet-plugin   plugin-telegram-noti-protocol-gdnacjueiqhbxtzj-88f777f6d-zz5pd    1/1     Running            0                47h
+cloudforet-plugin   supervisor-scheduler-7dc465c7df-zhngm                             2/2     Running            6 (2d4h ago)     17d
+cloudforet          board-5687775b85-hrzxr                                            1/1     Running            1 (2d4h ago)     8d
+cloudforet          cfctl-bc78b8d49-s5lsg                                             0/1     CrashLoopBackOff   2167 (84s ago)   8d
+cloudforet          config-847664c66f-9tg4t                                           1/1     Running            1 (2d4h ago)     8d
+cloudforet          console-869b584bbf-wlg85                                          1/1     Running            1 (2d4h ago)     8d
+cloudforet          console-api-77779f48b5-xrhst                                      2/2     Running            2 (2d4h ago)     8d
+cloudforet          console-api-v2-rest-77c5df5f6d-prpjc                              2/2     Running            2 (2d4h ago)     8d
+cloudforet          cost-analysis-bddf84cd6-8nzch                                     1/1     Running            1 (2d4h ago)     8d
+cloudforet          cost-analysis-scheduler-d4f4bbbc5-vbd44                           0/1     CrashLoopBackOff   2144 (3m ago)    8d
+cloudforet          cost-analysis-worker-55465d7866-bqb84                             1/1     Running            1 (2d4h ago)     8d
+cloudforet          dashboard-657b4b8745-5pvwx                                        1/1     Running            1 (2d4h ago)     8d
+cloudforet          file-manager-bbcff9c9b-fgl4d                                      1/1     Running            1 (2d4h ago)     8d
+cloudforet          file-manager-rest-b4b9cb997-gfm86                                 2/2     Running            2 (2d4h ago)     8d
+cloudforet          identity-776cb88879-tpx2j                                         1/1     Running            0                45h
+cloudforet          identity-scheduler-6cd8594546-5nw9b                               1/1     Running            0                45h
+cloudforet          identity-worker-6b76878f6c-mqxj2                                  1/1     Running            0                45h
+cloudforet          initialize-spaceone-yxnks-4qlt5                                   0/1     Completed          0                27d
+cloudforet          inventory-795cd9d6d9-qclzq                                        1/1     Running            1 (2d4h ago)     8d
+cloudforet          inventory-scheduler-8489cccdbf-tj8z2                              1/1     Running            1 (2d4h ago)     8d
+cloudforet          inventory-worker-5d5b97596d-7vwk6                                 1/1     Running            1 (2d4h ago)     8d
+cloudforet          mongodb-9b9687588-5lz47                                           1/1     Running            5 (2d4h ago)     27d
+cloudforet          monitoring-685547c9c5-542mb                                       1/1     Running            1 (2d4h ago)     8d
+cloudforet          monitoring-rest-b6956884-8f9b5                                    2/2     Running            2 (2d4h ago)     8d
+cloudforet          monitoring-scheduler-55d8f6d7c6-fmt44                             1/1     Running            1 (2d4h ago)     8d
+cloudforet          monitoring-worker-57996897bb-28cr8                                1/1     Running            1 (2d4h ago)     8d
+cloudforet          notification-6b77b5fbb4-7m4pm                                     1/1     Running            1 (2d4h ago)     8d
+cloudforet          notification-scheduler-67c4c4bf4-5tbpq                            1/1     Running            1 (2d4h ago)     8d
+cloudforet          notification-worker-79464566d9-knfh2                              1/1     Running            1 (2d4h ago)     8d
+cloudforet          plugin-6996bf87bb-w6w4f                                           1/1     Running            1 (2d4h ago)     8d
+cloudforet          plugin-scheduler-57b75b9765-9868s                                 1/1     Running            1 (2d4h ago)     8d
+cloudforet          plugin-worker-78c8d547d4-gdk69                                    1/1     Running            1 (2d4h ago)     8d
+cloudforet          redis-76dbfbf6d6-q6f9c                                            1/1     Running            1 (2d4h ago)     8d
+cloudforet          repository-67c94d7f4f-46drh                                       1/1     Running            1 (2d4h ago)     2d21h
+cloudforet          search-89fb5fff9-btnrb                                            1/1     Running            1 (2d4h ago)     8d
+cloudforet          secret-c46996684-cknkv                                            1/1     Running            1 (2d4h ago)     8d
+cloudforet          spacectl-868d595c98-rqlm4                                         1/1     Running            1 (2d4h ago)     8d
+cloudforet          statistics-cb79ddcfb-qwpfb                                        1/1     Running            1 (2d4h ago)     8d
+cloudforet          statistics-scheduler-7db9f46658-sgwx4                             1/1     Running            1 (2d4h ago)     8d
+cloudforet          statistics-worker-7fb7bd948f-6fk2m                                1/1     Running            1 (2d4h ago)     8d
+cloudforet          supervisor-scheduler-7dc465c7df-bfhkc                             2/2     Running            2 (2d4h ago)     8d
+kube-system         coredns-7f496c8d7d-mn6t7                                          1/1     Running            5 (2d4h ago)     27d
+kube-system         helm-install-traefik-crd-7txtb                                    0/1     Completed          0                27d
+kube-system         helm-install-traefik-hh57t                                        0/1     Completed          1                27d
+kube-system         local-path-provisioner-578895bd58-lpbmn                           1/1     Running            5 (2d4h ago)     27d
+kube-system         metrics-server-7b9c9c4b9c-rllk9                                   1/1     Running            5 (2d4h ago)     27d
+kube-system         svclb-traefik-78f79591-gkdxw                                      2/2     Running            10 (2d4h ago)    27d
+kube-system         traefik-6f5f87584-fclwz   
