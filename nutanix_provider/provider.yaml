@@ -1,0 +1,17 @@
+# Nutanix Provider Registration for Cloudforet
+# Register with: spacectl exec create identity.Provider -f provider.yaml
+
+provider: nutanix
+name: Nutanix
+plugin_info: "{'plugin_id': 'plugin-nutanix-identity-account-collector'}"
+alias: Nutanix Prism Central
+color: "#024DA1"
+icon: "https://www.nutanix.com/favicon.ico"
+order: 10
+options:
+  support_project_group_service_account: true
+  support_service_account: true
+tags:
+  description: "Nutanix Prism Central cloud management"
+  vendor: "Nutanix"
+  category: "Private Cloud"
