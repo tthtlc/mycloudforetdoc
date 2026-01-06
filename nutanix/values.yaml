@@ -1,0 +1,145 @@
+replicaCount: 2
+
+image:
+  repository: cloudforet/plugin-nutanix-inven-collector
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 50051
+  targetPort: 50051
+  name: grpc
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+logLevel: "INFO"
+
+# Environment variables
+env:
+  - name: LOG_LEVEL
+    value: "INFO"
+  - name: PLUGIN_PORT
+    value: "50051"
+  - name: ENABLE_STRUCTURED_LOGS
+    value: "true"
+  - name: GRPC_MAX_RECEIVE_MESSAGE_LENGTH
+    value: "20971520"  # 20MB
+
+# API Endpoint configuration
+apiEndpoints:
+  identity: "grpc://identity:50051"
+  inventory: "grpc://inventory:50051"
+  repository: "grpc://repository:50051"
+  costAnalysis: "grpc://cost-analysis:50051"
+  monitoring: "grpc://monitoring:50051"
+  notification: "grpc://notification:50051"
+
+# CloudForet configuration
+cloudforet:
+  domainId: "domain-default"
+  workspaceId: "workspace-default"
+
+# Pod configuration
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "8000"
+  prometheus.io/path: "/metrics"
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
+
+livenessProbe:
+  grpc:
+    port: 50051
+    service: "spaceone.plugin.Plugin"
+  initialDelaySeconds: 15
+  periodSeconds: 30
+  timeoutSeconds: 5
+  failureThreshold: 3
+
+readinessProbe:
+  grpc:
+    port: 50051
+    service: "spaceone.plugin.Plugin"
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 2
+
+# Persistence
+persistence:
+  enabled: false
+  storageClassName: "standard"
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  mountPath: /app/data
+
+# Autoscaling
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+# Node affinity
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Service Account
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+# Pod Disruption Budget
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+# Secrets (base64 encoded plugin API key)
+secrets:
+  pluginApiKey: ""  # Set via --set-string secrets.pluginApiKey=<key>
+
+# Configuration files
+config:
+  application: |
+    ---
+    LOG:
+      level: {{ .Values.logLevel }}
+    
+    DATABASES:
+      identity:
+        url: {{ .Values.apiEndpoints.identity }}
+      inventory:
+        url: {{ .Values.apiEndpoints.inventory }}
+      repository:
+        url: {{ .Values.apiEndpoints.repository }}
+      cost_analysis:
+        url: {{ .Values.apiEndpoints.costAnalysis }}
+      monitoring:
+        url: {{ .Values.apiEndpoints.monitoring }}
+      notification:
+        url: {{ .Values.apiEndpoints.notification }}

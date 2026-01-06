@@ -1,0 +1,22 @@
+apiVersion: v2
+name: plugin-nutanix-inven-collector
+description: Nutanix Inventory Collector Plugin for CloudForet
+type: application
+version: 1.0.0
+appVersion: 1.0.0
+
+keywords:
+  - nutanix
+  - inventory
+  - collector
+  - cloudforet
+
+home: https://github.com/cloudforet-io/plugin-nutanix-inven-collector
+sources:
+  - https://github.com/cloudforet-io/plugin-nutanix-inven-collector
+
+maintainers:
+  - name: CloudForet
+    email: support@cloudforet.io
+
+dependencies: []
