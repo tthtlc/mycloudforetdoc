@@ -1,0 +1,38 @@
+{
+  databases: [
+    { name: 'admin', sizeOnDisk: Long('126976'), empty: false },
+    { name: 'config', sizeOnDisk: Long('61440'), empty: false },
+    { name: 'file-manager', sizeOnDisk: Long('65536'), empty: false },
+    { name: 'identity', sizeOnDisk: Long('548864'), empty: false },
+    { name: 'local', sizeOnDisk: Long('73728'), empty: false },
+    { name: 'monitoring', sizeOnDisk: Long('417792'), empty: false },
+    { name: 'secret_data', sizeOnDisk: Long('40960'), empty: false },
+    { name: 'v2-config', sizeOnDisk: Long('249856'), empty: false },
+    {
+      name: 'v2-cost-analysis',
+      sizeOnDisk: Long('491520'),
+      empty: false
+    },
+    { name: 'v2-dashboard', sizeOnDisk: Long('303104'), empty: false },
+    {
+      name: 'v2-file-manager',
+      sizeOnDisk: Long('65536'),
+      empty: false
+    },
+    { name: 'v2-identity', sizeOnDisk: Long('1867776'), empty: false },
+    { name: 'v2-inventory', sizeOnDisk: Long('2609152'), empty: false },
+    { name: 'v2-monitoring', sizeOnDisk: Long('581632'), empty: false },
+    {
+      name: 'v2-notification',
+      sizeOnDisk: Long('290816'),
+      empty: false
+    },
+    { name: 'v2-plugin', sizeOnDisk: Long('630784'), empty: false },
+    { name: 'v2-repository', sizeOnDisk: Long('65536'), empty: false },
+    { name: 'v2-secret', sizeOnDisk: Long('299008'), empty: false },
+    { name: 'v2-statistics', sizeOnDisk: Long('61440'), empty: false }
+  ],
+  totalSize: Long('8851456'),
+  totalSizeMb: Long('8'),
+  ok: 1
+}

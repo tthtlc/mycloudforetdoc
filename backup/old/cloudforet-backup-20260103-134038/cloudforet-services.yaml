@@ -1,0 +1,796 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: board
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: board-1.3.12
+      spaceone.service: board
+    name: board
+    namespace: cloudforet
+    resourceVersion: "875"
+    uid: 5905d361-e45d-494c-baa5-4e5f5ab7ddd6
+  spec:
+    clusterIP: 10.43.93.140
+    clusterIPs:
+    - 10.43.93.140
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: board
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: config
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: config-1.3.10
+      spaceone.service: config
+    name: config
+    namespace: cloudforet
+    resourceVersion: "920"
+    uid: a4041170-31af-4693-b095-57ee3cf2d5de
+  spec:
+    clusterIP: 10.43.79.209
+    clusterIPs:
+    - 10.43.79.209
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: config
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: console-1.2.17
+      spaceone.service: console
+    name: console
+    namespace: cloudforet
+    resourceVersion: "893"
+    uid: 5c6d2118-2825-4f6e-8c34-9c001ba4e021
+  spec:
+    clusterIP: 10.43.98.217
+    clusterIPs:
+    - 10.43.98.217
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      nodePort: 30466
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    - name: https
+      nodePort: 30401
+      port: 443
+      protocol: TCP
+      targetPort: 80
+    selector:
+      spaceone.service: console
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console-api
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: console-api-1.1.15
+      spaceone.service: console-api
+    name: console-api
+    namespace: cloudforet
+    resourceVersion: "903"
+    uid: d776b173-73c4-4bab-b6e5-bbd169b02924
+  spec:
+    clusterIP: 10.43.157.225
+    clusterIPs:
+    - 10.43.157.225
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      nodePort: 31778
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    - name: https
+      nodePort: 31697
+      port: 443
+      protocol: TCP
+      targetPort: 80
+    selector:
+      spaceone.service: console-api
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console-api-v2
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: console-api-v2-1.0.10
+      spaceone.service: console-api-v2-rest
+    name: console-api-v2-rest
+    namespace: cloudforet
+    resourceVersion: "927"
+    uid: bc1f2c21-1b80-418d-9410-b6a44be04de4
+  spec:
+    clusterIP: 10.43.10.99
+    clusterIPs:
+    - 10.43.10.99
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: rest
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      spaceone.service: console-api-v2-rest
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: cost-analysis
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: cost-analysis-1.4.2
+      spaceone.service: cost-analysis
+    name: cost-analysis
+    namespace: cloudforet
+    resourceVersion: "873"
+    uid: b4b95247-f213-49c2-b7d8-5a8d31d10ef4
+  spec:
+    clusterIP: 10.43.60.165
+    clusterIPs:
+    - 10.43.60.165
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: cost-analysis
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: dashboard
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: dashboard-1.3.12
+      spaceone.service: dashboard
+    name: dashboard
+    namespace: cloudforet
+    resourceVersion: "922"
+    uid: 2fcb31ec-768a-44b8-9a27-ab5c0f37fc7f
+  spec:
+    clusterIP: 10.43.72.61
+    clusterIPs:
+    - 10.43.72.61
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: dashboard
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: file-manager
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: file-manager-1.3.11
+      spaceone.service: file-manager
+    name: file-manager
+    namespace: cloudforet
+    resourceVersion: "905"
+    uid: 98547e70-dc95-4435-86e7-5572a362d8ef
+  spec:
+    clusterIP: 10.43.120.180
+    clusterIPs:
+    - 10.43.120.180
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: file-manager
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: file-manager
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: file-manager-1.3.11
+      spaceone.service: file-manager-rest
+    name: file-manager-rest
+    namespace: cloudforet
+    resourceVersion: "944"
+    uid: 969e74fc-a471-4d41-b36c-fffb0365c266
+  spec:
+    clusterIP: 10.43.226.10
+    clusterIPs:
+    - 10.43.226.10
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: rest
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      spaceone.service: file-manager-rest
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: identity
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: identity-1.3.16
+      spaceone.service: identity
+    name: identity
+    namespace: cloudforet
+    resourceVersion: "861"
+    uid: 1ea37d20-c6f4-45c3-9dca-1c10953bcaaf
+  spec:
+    clusterIP: 10.43.214.196
+    clusterIPs:
+    - 10.43.214.196
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: identity
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: inventory
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: inventory-1.3.21
+      spaceone.service: inventory
+    name: inventory
+    namespace: cloudforet
+    resourceVersion: "939"
+    uid: eaf652a1-335c-4a16-a7cb-053e747ec6b0
+  spec:
+    clusterIP: 10.43.84.249
+    clusterIPs:
+    - 10.43.84.249
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: inventory
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: mongodb
+      app.kubernetes.io/version: 0.1.0
+      helm.sh/chart: mongodb-0.1.0
+      spaceone.service: mongodb
+    name: mongodb
+    namespace: cloudforet
+    resourceVersion: "932"
+    uid: c466c222-074d-4b98-9a6d-73b1a4d5032b
+  spec:
+    clusterIP: 10.43.135.76
+    clusterIPs:
+    - 10.43.135.76
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: mongodb
+      port: 27017
+      protocol: TCP
+      targetPort: 27017
+    selector:
+      spaceone.service: mongodb
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: monitoring
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: monitoring-1.3.25
+      spaceone.service: monitoring
+    name: monitoring
+    namespace: cloudforet
+    resourceVersion: "894"
+    uid: 8b184992-acf7-4415-8c1b-6a4baf71911e
+  spec:
+    clusterIP: 10.43.180.62
+    clusterIPs:
+    - 10.43.180.62
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: monitoring
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: monitoring
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: monitoring-1.3.25
+      spaceone.service: monitoring-rest
+    name: monitoring-rest
+    namespace: cloudforet
+    resourceVersion: "868"
+    uid: 9f6c662a-7e8e-4a15-aa5e-5e804ab99773
+  spec:
+    clusterIP: 10.43.146.154
+    clusterIPs:
+    - 10.43.146.154
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: rest
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      spaceone.service: monitoring-rest
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: notification
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: notification-1.3.16
+      spaceone.service: notification
+    name: notification
+    namespace: cloudforet
+    resourceVersion: "915"
+    uid: 244c4285-b440-4823-b34c-29089155b14c
+  spec:
+    clusterIP: 10.43.106.199
+    clusterIPs:
+    - 10.43.106.199
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: notification
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: plugin
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: plugin-1.3.11
+      spaceone.service: plugin
+    name: plugin
+    namespace: cloudforet
+    resourceVersion: "879"
+    uid: b421babc-69e1-4d83-9377-5eaf1ae98fdd
+  spec:
+    clusterIP: 10.43.254.102
+    clusterIPs:
+    - 10.43.254.102
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: plugin
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: redis
+      app.kubernetes.io/version: 0.1.0
+      helm.sh/chart: redis-0.1.0
+      spaceone.service: redis
+    name: redis
+    namespace: cloudforet
+    resourceVersion: "883"
+    uid: 0a155de1-435b-4481-a281-25be8288b1ea
+  spec:
+    clusterIP: 10.43.137.135
+    clusterIPs:
+    - 10.43.137.135
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: redis
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    selector:
+      spaceone.service: redis
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: repository
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: repository-1.3.11
+      spaceone.service: repository
+    name: repository
+    namespace: cloudforet
+    resourceVersion: "901"
+    uid: ce9eff1d-bae2-4638-a882-6fad336dce3d
+  spec:
+    clusterIP: 10.43.75.64
+    clusterIPs:
+    - 10.43.75.64
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: repository
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: search
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: search-1.0.1
+      spaceone.service: search
+    name: search
+    namespace: cloudforet
+    resourceVersion: "913"
+    uid: 59f3ba3c-f0b4-424e-afde-2da7f00a251d
+  spec:
+    clusterIP: 10.43.120.39
+    clusterIPs:
+    - 10.43.120.39
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: search
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: secret
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: secret-1.3.13
+      spaceone.service: secret
+    name: secret
+    namespace: cloudforet
+    resourceVersion: "937"
+    uid: 466c8142-8eef-45c8-a5a8-d0c14a5a5891
+  spec:
+    clusterIP: 10.43.168.75
+    clusterIPs:
+    - 10.43.168.75
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: secret
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: statistics
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: statistics-1.3.18
+      spaceone.service: statistics
+    name: statistics
+    namespace: cloudforet
+    resourceVersion: "863"
+    uid: 46bf9be5-4625-481a-bab2-710bfd940ad6
+  spec:
+    clusterIP: 10.43.204.135
+    clusterIPs:
+    - 10.43.204.135
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      spaceone.service: statistics
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""

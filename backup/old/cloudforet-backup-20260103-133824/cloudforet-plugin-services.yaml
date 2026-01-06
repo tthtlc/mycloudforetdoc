@@ -1,0 +1,49 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      spaceone.supervisor.domain_id: domain-af00a9336108
+      spaceone.supervisor.name: root
+      spaceone.supervisor.plugin.endpoint: grpc://plugin-aws-ec2-inven-collector-rrzecgirtquoetbl.supervisor.svc.cluster.local:50051
+      spaceone.supervisor.plugin.image: cloudforet/plugin-aws-inven-collector
+      spaceone.supervisor.plugin.resource_type: inventory.Collector
+      spaceone.supervisor.plugin.version: 1.0.36
+      spaceone.supervisor.plugin_id: plugin-aws-ec2-inven-collector
+    creationTimestamp: "2026-01-03T05:17:29Z"
+    labels:
+      domain_id: domain-af00a9336108
+      plugin_id: plugin-aws-ec2-inven-collector
+      resource_type: inventory.Collector
+      supervisor_name: root
+      version: 1.0.36
+    name: plugin-aws-ec2-inven-collector-rrzecgirtquoetbl
+    namespace: cloudforet-plugin
+    resourceVersion: "8061"
+    uid: fb87dc3a-7ae3-441f-9308-83c0c719cf0c
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      domain_id: domain-af00a9336108
+      plugin_id: plugin-aws-ec2-inven-collector
+      resource_type: inventory.Collector
+      supervisor_name: root
+      version: 1.0.36
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""

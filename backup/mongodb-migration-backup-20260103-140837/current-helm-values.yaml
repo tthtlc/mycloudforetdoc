@@ -1,0 +1,476 @@
+USER-SUPPLIED VALUES:
+board:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-board
+        read_preference: PRIMARY
+  enabled: true
+  image:
+    name: cloudforet/board
+    version: 2.0.dev12
+cfctl:
+  enabled: true
+  image:
+    name: cloudforet/cfctl
+    version: v1.0.17
+  pod:
+    spec:
+      containers:
+      - command:
+        - /bin/sh
+        - -c
+        - tail -f /dev/null
+        name: cfctl
+config:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-config
+        read_preference: PRIMARY
+  enabled: true
+  image:
+    name: cloudforet/config
+    version: 2.0.dev11
+console:
+  enable: true
+  image:
+    name: cloudforet/console
+    version: 2.0.dev107
+  production_json:
+    CONSOLE_API:
+      ENDPOINT: https://console4-v1-api.example.com
+    CONSOLE_API_V2:
+      ENDPOINT: https://console4-v2-api.example.com
+    DOMAIN_IMAGE:
+      CI_LOGO: https://raw.githubusercontent.com/cloudforet-io/artwork/main/logo/symbol/Cloudforet_symbol--dark-navy.svg
+      CI_TEXT: https://raw.githubusercontent.com/cloudforet-io/artwork/main/logo/wordmark/Cloudforet_wordmark--primary.svg
+      CI_TEXT_WITH_TYPE: https://raw.githubusercontent.com/cloudforet-io/artwork/main/logo/wordmark/Cloudforet_wordmark--primary.svg
+      SIGN_IN: https://raw.githubusercontent.com/cloudforet-io/artwork/main/illustrations/happy-new-year-2024.png
+console-api:
+  enable: true
+  image:
+    name: cloudforet/console-api
+    version: 2.0.dev35
+console-api-v2:
+  enabled: true
+  image:
+    name: cloudforet/console-api-v2
+    version: 2.0.dev133
+cost-analysis:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-cost-analysis
+        read_preference: PRIMARY
+  application_scheduler:
+    DATABASES:
+      default:
+        db: v2-cost-analysis
+        read_preference: PRIMARY
+  application_worker:
+    DATABASES:
+      default:
+        db: v2-cost-analysis
+        read_preference: PRIMARY
+  enabled: true
+  image:
+    name: cloudforet/cost-analysis
+    version: 2.0.dev240
+  replicas_worker: 1
+  scheduler: true
+  worker: true
+dashboard:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-dashboard
+        read_preference: PRIMARY
+  enabled: true
+  image:
+    name: cloudforet/dashboard
+    version: 2.0.dev34
+enabled: true
+file-manager:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-file-manager
+        read_preference: PRIMARY
+  enabled: true
+  image:
+    name: cloudforet/file-manager
+    version: 2.0.dev54
+global:
+  backend:
+    sidecar: []
+    volumes: []
+  frontend:
+    sidecar: []
+    volumes: []
+  namespace: cloudforet
+  shared_conf:
+    CACHES:
+      default:
+        backend: spaceone.core.cache.redis_cache.RedisCache
+        db: 0
+        encoding: utf-8
+        host: redis
+        port: 6379
+        socket_connect_timeout: 10
+        socket_timeout: 10
+    CONNECTORS:
+      ConfigConnector:
+        endpoint:
+          v1: grpc://config:50051
+      IdentityConnector:
+        endpoint:
+          v1: grpc://identity:50051
+      InventoryConnector:
+        endpoint:
+          v1: grpc://inventory:50051
+      MonitoringConnector:
+        endpoint:
+          v1: grpc://monitoring:50051
+      NotificationConnector:
+        endpoint:
+          v1: grpc://notification:50051
+      PluginConnector:
+        endpoint:
+          v1: grpc://plugin:50051
+      RepositoryConnector:
+        endpoint:
+          v1: grpc://repository:50051
+      SecretConnector:
+        endpoint:
+          v1: grpc://secret:50051
+      SpaceConnector:
+        endpoints:
+          board: grpc://board:50051
+          config: grpc://config:50051
+          cost_analysis: grpc://cost-analysis:50051
+          file_manager: grpc://file-manager:50051
+          identity: grpc://identity:50051
+          inventory: grpc://inventory:50051
+          monitoring: grpc://monitoring:50051
+          notification: grpc://notification:50051
+          repository: grpc://repository:50051
+          secret: grpc://secret:50051
+          statistics: grpc://statistics:50051
+      StatisticsConnector:
+        endpoint:
+          v1: grpc://statistics:50051
+    DATABASES:
+      default:
+        host: mongodb
+        password: password
+        port: 27017
+        username: admin
+    HANDLERS:
+      authentication:
+      - backend: spaceone.core.handler.authentication_handler:SpaceONEAuthenticationHandler
+      authorization:
+      - backend: spaceone.core.handler.authorization_handler:SpaceONEAuthorizationHandler
+      mutation:
+      - backend: spaceone.core.handler.mutation_handler:SpaceONEMutationHandler
+    TOKEN: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzcGFjZW9uZS5pZGVudGl0eSIsInR5cCI6IlNZU1RFTV9UT0tFTiIsIm93biI6IlNZU1RFTSIsImRpZCI6ImRvbWFpbi1yb290IiwiYXVkIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiI1MzhkNjkzOWEwZGVhNTYzMWY3ZGE2Y2Q0ODgxZGUxOCIsImlhdCI6MTc2NzQxMjM2NiwidmVyIjoiMi4wIn0.aGLByw0_PWWb8ICkBqNqjEWWX_VMgcIZ6fBuCOX9FOgC31CS32AfFe8tJwBL3eltyzpt8RbcHbU1LjKYuP2CZk_yoaAPenPVopOmqSienxgQamsvprD5vWvSisUAlX9RGjjxrzAxh2MUWaIv3PzIMzwnBqurxyIw6O5TPKMTLO7DYi7HUgM9wuPmU19lUeeyT1O0aF6pFUzBoab6RZ9sEPo6_jxm9kh1c3cb-aQ3kSvo8kda1KYwulVOa7O34REVHiNIn4hPEN_3CxXmNHCu97WMTEIIQzWUadQaoKxnRWwjiY7qf8_OJZiUc0S3toRjtT6Pjs1h6NiLNXXVlOVb1Q
+  supervisor_namespace: cloudforet-plugin
+identity:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-identity
+        read_preference: PRIMARY
+    ENDPOINTS: []
+    INTERNAL_ENDPOINTS:
+    - endpoint: grpc://identity:50051
+      name: Identity Service
+      service: identity
+    - endpoint: grpc://inventory:50051
+      name: Inventory Service
+      service: inventory
+    - endpoint: grpc://repository:50051
+      name: Repository Service
+      service: repository
+    - endpoint: grpc://secret:50051
+      name: Secret Service
+      service: secret
+    - endpoint: grpc://monitoring:50051
+      name: Monitoring Service
+      service: monitoring
+    - endpoint: grpc://config:50051
+      name: Config Service
+      service: config
+    - endpoint: grpc://plugin:50051
+      name: Plugin Manager
+      service: plugin
+    - endpoint: grpc://statistics:50051
+      name: Statistics Service
+      service: statistics
+    - endpoint: grpc://notification:50051
+      name: Notification Service
+      service: notification
+    - endpoint: grpc://cost-analysis:50051
+      name: Cost Analysis Service
+      service: cost_analysis
+    - endpoint: grpc://board:50051
+      name: Board Service
+      service: board
+    - endpoint: grpc://file-manager:50051
+      name: File Manager
+      service: file_manager
+    - endpoint: grpc://dashboard:50051
+      name: Dashboard Service
+      service: dashboard
+  enabled: true
+  image:
+    name: cloudforet/identity
+    version: 2.0.dev299
+image:
+  name: alpine
+  version: 3.3
+inventory:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-inventory
+        read_preference: PRIMARY
+    collect_queue: collector_q
+  application_scheduler:
+    DATABASES:
+      default:
+        db: v2-inventory
+        read_preference: PRIMARY
+  application_worker:
+    DATABASES:
+      default:
+        db: v2-inventory
+        read_preference: PRIMARY
+    HANDLERS:
+      authentication: []
+      authorization: []
+      mutation: []
+  enabled: true
+  image:
+    name: cloudforet/inventory
+    version: 2.0.dev208
+  scheduler: true
+  worker: true
+marketplace-assets:
+  enabled: false
+  image:
+    name: cloudforet/marketplace-assets
+    version: 1.12.0
+mongodb:
+  enabled: true
+  resources: {}
+monitoring:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-monitoring
+        read_preference: PRIMARY
+    INSTALLED_DATA_SOURCE_PLUGINS:
+    - name: AWS CloudWatch
+      plugin_info:
+        plugin_id: plugin-aws-cloudwatch-mon-datasource
+        provider: aws
+    - name: Azure Monitor
+      plugin_info:
+        plugin_id: plugin-azure-monitor-mon-datasource
+        provider: azure
+    - name: Google Cloud Monitoring
+      plugin_info:
+        plugin_id: plugin-google-stackdriver-mon-datasource
+        provider: google_cloud
+    - name: AWS CloudTrail
+      plugin_info:
+        plugin_id: plugin-aws-cloudtrail-mon-datasource
+        provider: aws
+    - name: Azure Activity Log
+      plugin_info:
+        plugin_id: plugin-azure-activity-log-mon-datasource
+        provider: azure
+  application_scheduler:
+    DATABASES:
+      default:
+        db: v2-monitoring
+        read_preference: PRIMARY
+  application_worker:
+    DATABASES:
+      default:
+        db: v2-monitoring
+        read_preference: PRIMARY
+  enabled: true
+  image:
+    name: cloudforet/monitoring
+    version: 2.0.dev54
+  rest: true
+  scheduler: true
+  worker: true
+notification:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-notification
+        read_preference: PRIMARY
+    DEFAULT_QUOTA:
+      plugin-ms-teams-noti-protocol:
+        day: -1
+        month: -1
+      plugin-slack-noti-protocol:
+        day: -1
+        month: -1
+      plugin-telegram-noti-protocol:
+        day: -1
+        month: -1
+    INSTALLED_PROTOCOL_PLUGINS:
+    - name: MS Teams
+      plugin_info:
+        plugin_id: plugin-ms-teams-noti-protocol
+    - name: Slack
+      plugin_info:
+        options: {}
+        plugin_id: slack-notification-protocol
+        schema: slack_webhook
+    - name: Telegram
+      plugin_info:
+        options: {}
+        plugin_id: plugin-telegram-noti-protocol
+        schema: telegram_auth_token
+  application_scheduler:
+    DATABASES:
+      default:
+        db: v2-notification
+        read_preference: PRIMARY
+  application_worker:
+    DATABASES:
+      default:
+        db: v2-notification
+        read_preference: PRIMARY
+    DEFAULT_QUOTA:
+      plugin-ms-teams-noti-protocol:
+        day: -1
+        month: -1
+      plugin-slack-noti-protocol:
+        day: -1
+        month: -1
+      plugin-telegram-noti-protocol:
+        day: -1
+        month: -1
+  enabled: true
+  image:
+    name: cloudforet/notification
+    version: 2.0.dev27
+  scheduler: true
+  worker: true
+plugin:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-plugin
+        read_preference: PRIMARY
+  application_scheduler:
+    DATABASES:
+      default:
+        db: v2-plugin
+        read_preference: PRIMARY
+  application_worker:
+    DATABASES:
+      default:
+        db: v2-plugin
+        read_preference: PRIMARY
+  enabled: true
+  image:
+    name: cloudforet/plugin
+    version: 2.0.dev16
+  scheduler: true
+  worker: true
+redis:
+  enabled: true
+  resources: {}
+repository:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-repository
+        read_preference: PRIMARY
+  enabled: true
+  image:
+    name: cloudforet/repository
+    version: 2.0.dev60
+resources: {}
+search:
+  enabled: true
+  image:
+    name: cloudforet/search
+    version: 0.1.dev5
+secret:
+  application_grpc:
+    BACKEND: MongoDBConnector
+    CONNECTORS:
+      MongoDBConnector:
+        host: mongodb
+        password: password
+        port: 27017
+        username: admin
+    DATABASES:
+      default:
+        db: v2-secret
+        read_preference: PRIMARY
+  enabled: true
+  image:
+    name: cloudforet/secret
+    version: 2.0.dev28
+spacectl:
+  enabled: true
+  image:
+    name: cloudforet/spacectl
+    version: 2.0.9
+statistics:
+  application_grpc:
+    DATABASES:
+      default:
+        db: v2-statistics
+        read_preference: PRIMARY
+  application_scheduler:
+    DATABASES:
+      default:
+        db: v2-statistics
+        read_preference: PRIMARY
+  application_worker:
+    DATABASES:
+      default:
+        db: v2-statistics
+        read_preference: PRIMARY
+  enabled: true
+  image:
+    name: cloudforet/statistics
+    version: 2.0.dev23
+  scheduler: true
+  worker: true
+supervisor:
+  application_scheduler:
+    BACKEND: KubernetesConnector
+    CONNECTORS:
+      KubernetesConnector:
+        end_port: 50052
+        headless: true
+        namespace: cloudforet-plugin
+        replica:
+          cost_analysis.DataSource: 1
+          inventory.Collector: 1
+          monitoring.DataSource: 1
+        start_port: 50051
+      PluginConnector:
+        endpoint:
+          v1: grpc://plugin:50051
+      RepositoryConnector:
+        endpoint:
+          v1: grpc://repository:50051
+    HOSTNAME: supervisor.svc.cluster.local
+    NAME: root
+  enabled: true
+  image:
+    name: cloudforet/supervisor
+    version: 2.0.dev19

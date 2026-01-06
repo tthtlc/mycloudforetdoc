@@ -1,0 +1,75 @@
+apiVersion: v1
+items:
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"cert-manager.io/cluster-issuer":"letsencrypt-prod","traefik.ingress.kubernetes.io/redirect-entry-point":"websecure","traefik.ingress.kubernetes.io/router.entrypoints":"web,websecure","traefik.ingress.kubernetes.io/router.tls":"true"},"name":"console-ingress","namespace":"cloudforet"},"spec":{"ingressClassName":"traefik","rules":[{"host":"console4.example.com","http":{"paths":[{"backend":{"service":{"name":"console","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}},{"host":"console4-v1-api.example.com","http":{"paths":[{"backend":{"service":{"name":"console-api","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}},{"host":"console4-v2-api.example.com","http":{"paths":[{"backend":{"service":{"name":"console-api-v2-rest","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}},{"host":"webhook4-api.example.com","http":{"paths":[{"backend":{"service":{"name":"monitoring-rest","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["console4.example.com","console4-v1-api.example.com","console4-v2-api.example.com","webhook4-api.example.com"],"secretName":"cloudforet-tls"}]}}
+      traefik.ingress.kubernetes.io/redirect-entry-point: websecure
+      traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+      traefik.ingress.kubernetes.io/router.tls: "true"
+    creationTimestamp: "2026-01-03T04:25:24Z"
+    generation: 1
+    name: console-ingress
+    namespace: cloudforet
+    resourceVersion: "5796"
+    uid: 814de187-bbb7-4f40-adf7-cc89ddfb81a7
+  spec:
+    ingressClassName: traefik
+    rules:
+    - host: console4.example.com
+      http:
+        paths:
+        - backend:
+            service:
+              name: console
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+    - host: console4-v1-api.example.com
+      http:
+        paths:
+        - backend:
+            service:
+              name: console-api
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+    - host: console4-v2-api.example.com
+      http:
+        paths:
+        - backend:
+            service:
+              name: console-api-v2-rest
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+    - host: webhook4-api.example.com
+      http:
+        paths:
+        - backend:
+            service:
+              name: monitoring-rest
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+    tls:
+    - hosts:
+      - console4.example.com
+      - console4-v1-api.example.com
+      - console4-v2-api.example.com
+      - webhook4-api.example.com
+      secretName: cloudforet-tls
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 172.18.0.2
+kind: List
+metadata:
+  resourceVersion: ""

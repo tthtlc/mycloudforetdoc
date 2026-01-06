@@ -1,0 +1,3276 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-board
+          read_preference: PRIMARY
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: bd67da806f366f1a73643415e4878aa64f079d07a185bc2b5eb3c1372a8e0e89
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: board-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "777"
+    uid: a84d68c6-4d7d-448d-9cd7-46fa39dc8d9b
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: board-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "847"
+    uid: 804a3243-ca51-4cad-8695-741dc280121b
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: board-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "807"
+    uid: f822a95b-ed87-40cb-965f-acf31df2258b
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: board-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "827"
+    uid: a0c62d30-69e6-41cf-9a20-806787c8d04c
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+        - file:///opt/spaceone/board/config/database.yaml
+        - file:///opt/spaceone/board/config/shared.yaml
+        - file:///opt/spaceone/board/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: board
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: board_user
+            password: board_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            db: 1
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/board.log
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: board-conf
+    namespace: cloudforet
+    resourceVersion: "854"
+    uid: 66d16c9a-cce9-45c7-beeb-3f1b7187d6dc
+- apiVersion: v1
+  data:
+    database.yaml: |-
+      DATABASES:
+        default:
+          authentication_source: admin
+          db: board
+          host: localhost
+          maxPoolSize: 200
+          password: spaceonedbuser
+          port: 27028
+          read_preference: PRIMARY
+          username: admin
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 1a734f07f8e87f4362a0b7bf45590cfd14655274fb2f24294b85c9b2623e8c25
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: board-database-conf
+    namespace: cloudforet
+    resourceVersion: "843"
+    uid: 72c78bac-f200-47b4-a906-4f382806a237
+- apiVersion: v1
+  data:
+    default.yaml: |2-
+
+      endpoints:
+        identity: grpc://identity:50051
+        inventory: grpc://inventory:50051
+        monitoring: grpc://monitoring:50051
+        plugin: grpc://plugin:50051
+        repository: grpc://repository:50051
+        cost_analysis: grpc://cost-analysis:50051
+        secret: grpc://secret:50051
+        statistics: grpc://statistics:50051
+        config: grpc://config:50051
+        notification: grpc://notification:50051
+        board: grpc://board:50051
+        file_manager: grpc://file-manager:50051
+        dashboard: grpc://dashboard:50051
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: cfctl-environment-conf
+    namespace: cloudforet
+    resourceVersion: "781"
+    uid: b6ab9937-d881-4393-81dd-aaba9fac7f7b
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-config
+          read_preference: PRIMARY
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 0fd482d0b9e3c3988dcf225d1293528b30534f7cdb1dcd47c14db4b4a1393435
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: config-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "776"
+    uid: 5eeb58b0-5065-4819-a8cf-c1c7d4e28717
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: config-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "792"
+    uid: 1b13fb92-7906-466a-ad86-c784c65d4d72
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: config-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "779"
+    uid: e37df489-89e0-4fd4-8b5e-84e41b2d481f
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: config-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "786"
+    uid: e88fd11a-074d-4665-938b-c78f54112178
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+        - file:///opt/spaceone/config/config/database.yaml
+        - file:///opt/spaceone/config/config/shared.yaml
+        - file:///opt/spaceone/config/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: config
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: config_user
+            password: config_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/config.log
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: config-conf
+    namespace: cloudforet
+    resourceVersion: "765"
+    uid: 6f9ca4dd-85c4-4aba-9ec6-c8b81e371fa3
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: config-database-conf
+    namespace: cloudforet
+    resourceVersion: "770"
+    uid: 2a7ba4a3-640a-4a4d-8bd2-d40f047492f6
+- apiVersion: v1
+  data:
+    production.json: '{"cors":["chrome-extension://*","https://*","http://*"],"logger":{"handlers":[{"level":"debug","type":"console"},{"format":"json","level":"info","path":"/var/log/spaceone/console-api.log","type":"file"}]},"redis":{"db":15,"host":"redis","port":6379}}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-conf
+    namespace: cloudforet
+    resourceVersion: "823"
+    uid: fca44c7a-1c72-46ce-8233-5f7e4f90086c
+- apiVersion: v1
+  data:
+    nginx.conf: |2-
+
+      user  nginx;
+      worker_processes  auto;
+      error_log  /var/log/nginx/error.log warn;
+
+      pid        /var/run/nginx.pid;
+
+      events {
+          worker_connections  1024;
+      }
+
+      http {
+          include       /etc/nginx/mime.types;
+          default_type  application/octet-stream;
+
+          log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                            '$status $body_bytes_sent "$http_referer" '
+                            '"$http_user_agent" "$http_x_forwarded_for"';
+
+          access_log  /var/log/nginx/access.log  main;
+
+          sendfile        on;
+          tcp_nopush     on;
+
+          keepalive_timeout  65;
+
+          server_tokens off;
+
+          include /etc/nginx/conf.d/*.conf;
+      }
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-nginx-conf
+    namespace: cloudforet
+    resourceVersion: "828"
+    uid: ad787289-843c-44fa-b29f-4382831d7474
+- apiVersion: v1
+  data:
+    proxy.conf: |2-
+
+      server {
+        listen 80;
+
+        access_log /dev/stdout main;
+        error_log /dev/stderr warn;
+
+        client_max_body_size 10M;
+
+        location / {
+          proxy_pass http://localhost:3000/;
+
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+          proxy_cookie_path / "/; secure; SameSite=None";
+
+          proxy_connect_timeout 1200;
+          proxy_send_timeout 1200;
+          proxy_read_timeout 1200;
+          send_timeout 1200;
+        }
+      }
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-nginx-proxy-conf
+    namespace: cloudforet
+    resourceVersion: "826"
+    uid: c35fea7b-4dfc-4d43-9448-11e886ecdc4f
+- apiVersion: v1
+  data:
+    application.yaml: "null"
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: a9dc16a7a3875d174c1af4f923f261cafc124357f2322493a59ee0d14fcd10db
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-v2-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "810"
+    uid: bb991494-e977-4567-90bf-aa66fe04b8cd
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      nginx:
+        image:
+          imagePullPolicy: IfNotPresent
+          name: nginx
+          version: stable
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 365f793ab599c5ffa78eefd76a5493c3cd118a9f2c80e795d736a7051cba437e
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-v2-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "811"
+    uid: 088432a4-e68d-49ac-9ac7-2f28513f4411
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-v2-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "799"
+    uid: 888be9d5-e8ac-4059-877c-7e3d3a828858
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-v2-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "803"
+    uid: 5ccf6127-fcc6-4217-bf1c-b97cbcc52ecd
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+      - file:///opt/spaceone/console-api-v2/config/shared.yaml
+      - file:///opt/spaceone/console-api-v2/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            db: 1
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/console-api-v2.log
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-v2-conf
+    namespace: cloudforet
+    resourceVersion: "795"
+    uid: 477cabf7-4312-49ac-af92-2515e31bf247
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-v2-database-conf
+    namespace: cloudforet
+    resourceVersion: "806"
+    uid: ca4fedd8-47e1-4c9f-853d-09360ab3aa98
+- apiVersion: v1
+  data:
+    nginx.conf: |2-
+
+      user  nginx;
+      worker_processes  auto;
+      error_log  /var/log/nginx/error.log warn;
+
+      pid        /var/run/nginx.pid;
+
+      events {
+          worker_connections  1024;
+      }
+
+      http {
+          include       /etc/nginx/mime.types;
+          default_type  application/octet-stream;
+
+          log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                            '$status $body_bytes_sent "$http_referer" '
+                            '"$http_user_agent" "$http_x_forwarded_for"';
+
+          access_log  /var/log/nginx/access.log  main;
+
+          sendfile        on;
+          tcp_nopush     on;
+
+          keepalive_timeout  65;
+
+          server_tokens off;
+
+          include /etc/nginx/conf.d/*.conf;
+      }
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-v2-rest-nginx-conf
+    namespace: cloudforet
+    resourceVersion: "791"
+    uid: 31e04cb4-5068-4d35-aca8-bba84937e386
+- apiVersion: v1
+  data:
+    proxy.conf: |2-
+
+      server {
+        listen 80;
+
+        access_log /dev/stdout main;
+        error_log /dev/stderr warn;
+
+        location / {
+          proxy_pass http://localhost:8000/;
+
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+          proxy_connect_timeout 1200;
+          proxy_send_timeout 1200;
+          proxy_read_timeout 1200;
+          send_timeout 1200;
+
+        }
+      }
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-api-v2-rest-nginx-proxy-conf
+    namespace: cloudforet
+    resourceVersion: "794"
+    uid: 6ab8d0aa-cc09-4aef-b668-b47be0b24a8f
+- apiVersion: v1
+  data:
+    production.json: '{"AMCHARTS_LICENSE":{"CHARTS":"","MAPS":"","TIMELINE":""},"ASSET_PATH":{},"CONSOLE_API":{"ENDPOINT":"https://console4-v1-api.example.com"},"CONSOLE_API_V2":{"ENDPOINT":"https://console4-v2-api.example.com"},"DOMAIN_IMAGE":{"CI_LOGO":"https://raw.githubusercontent.com/cloudforet-io/artwork/main/logo/symbol/Cloudforet_symbol--dark-navy.svg","CI_TEXT":"https://raw.githubusercontent.com/cloudforet-io/artwork/main/logo/wordmark/Cloudforet_wordmark--primary.svg","CI_TEXT_WITH_TYPE":"https://raw.githubusercontent.com/cloudforet-io/artwork/main/logo/wordmark/Cloudforet_wordmark--primary.svg","SIGN_IN":"https://raw.githubusercontent.com/cloudforet-io/artwork/main/illustrations/happy-new-year-2024.png"},"DOMAIN_NAME":"spaceone","DOMAIN_NAME_REF":"config","GTAG_ID":"DISABLED","GTM_ID":"DISABLED","MOCK":{"ALL":false,"ENDPOINT":""}}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-conf
+    namespace: cloudforet
+    resourceVersion: "755"
+    uid: 0305e6bd-bf3b-449b-a946-91a5952f9413
+- apiVersion: v1
+  data:
+    nginx.conf: |2-
+
+      user  nginx;
+      worker_processes  auto;
+      error_log  /var/log/nginx/error.log warn;
+
+      pid        /var/run/nginx.pid;
+
+      events {
+          worker_connections  1024;
+      }
+
+      http {
+          include       /etc/nginx/mime.types;
+          default_type  application/octet-stream;
+
+          log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                            '$status $body_bytes_sent "$http_referer" '
+                            '"$http_user_agent" "$http_x_forwarded_for"';
+
+          access_log  /var/log/nginx/access.log  main;
+
+          sendfile        on;
+          tcp_nopush     on;
+
+          keepalive_timeout  65;
+
+          server_tokens off;
+
+          include /etc/nginx/conf.d/*.conf;
+      }
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: console-nginx-conf
+    namespace: cloudforet
+    resourceVersion: "801"
+    uid: d6a11509-c480-4835-8736-82caf1ae76c9
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-cost-analysis
+          read_preference: PRIMARY
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: e7d590a5db40e5143b2934dfb8fa0c66055305eb3ad51eabee9c1fa0d1929f98
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: cost-analysis-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "797"
+    uid: 0d246754-0fa0-4f2e-8ce3-f4fbb53f42d4
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      nginx:
+        image:
+          imagePullPolicy: IfNotPresent
+          name: nginx
+          version: stable
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 365f793ab599c5ffa78eefd76a5493c3cd118a9f2c80e795d736a7051cba437e
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: cost-analysis-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "808"
+    uid: 7e950cec-b7a2-41df-ad56-86a8faf844ad
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-cost-analysis
+          read_preference: PRIMARY
+      QUEUES:
+        cost_analysis_q:
+          backend: spaceone.core.queue.redis_queue.RedisQueue
+          channel: cost_analysis_job
+          host: redis
+          port: 6379
+      SCHEDULERS:
+        budget_update_scheduler:
+          backend: spaceone.cost_analysis.interface.task.v1.budget_update_scheduler.BudgetUpdateScheduler
+          interval: 1
+          minute: :00
+          queue: cost_analysis_q
+        cost_report_run_scheduler:
+          backend: spaceone.cost_analysis.interface.task.v1.cost_report_run_scheduler.CostReportRunScheduler
+          interval: 1
+          minute: :00
+          queue: cost_analysis_q
+        data_source_sync_scheduler:
+          backend: spaceone.cost_analysis.interface.task.v1.data_source_sync_scheduler.DataSourceSyncScheduler
+          interval: 1
+          minute: :00
+          queue: cost_analysis_q
+        unified_cost_run_scheduler:
+          backend: spaceone.cost_analysis.interface.task.v1.unified_cost_run_scheduler.UnifiedCostRunScheduler
+          interval: 1
+          minute: :00
+          queue: cost_analysis_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 7037f696594cc1491e8951f2c938cab424c695929a8e6f86a20b20fd2c9841f7
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: cost-analysis-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "782"
+    uid: 9ca0eb2d-2205-4254-b4fe-e56931156146
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-cost-analysis
+          read_preference: PRIMARY
+      QUEUES:
+        cost_analysis_q:
+          backend: spaceone.core.queue.redis_queue.RedisQueue
+          channel: cost_analysis_job
+          host: redis
+          port: 6379
+      WORKERS:
+        cost_analysis_worker:
+          backend: spaceone.core.scheduler.worker.BaseWorker
+          pool: 1
+          queue: cost_analysis_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 41fe9abb3333b42c84dcc49692588806d11a15363a079613128d1e33e767c564
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: cost-analysis-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "775"
+    uid: f6008c7d-0e7e-4bf8-aaaa-d22d6e2ade5e
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+      - file:///opt/spaceone/cost-analysis/config/database.yaml
+      - file:///opt/spaceone/cost-analysis/config/shared.yaml
+      - file:///opt/spaceone/cost-analysis/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: cost-analysis
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: cost_analysis_user
+            password: cost_analysis_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            db: 10
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/cost_analysis.log
+        QUEUES:
+          cost_analysis_q:
+            backend: spaceone.core.queue.redis_queue.RedisQueue
+            host: redis
+            port: 6379
+            channel: cost_analysis_job
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: cost-analysis-conf
+    namespace: cloudforet
+    resourceVersion: "798"
+    uid: 18acac89-edf0-4c6f-abfc-cae2acb1a018
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: cost-analysis-database-conf
+    namespace: cloudforet
+    resourceVersion: "787"
+    uid: 0dc36270-182b-49d6-99a4-72f90dcfaf7e
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-dashboard
+          read_preference: PRIMARY
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 4741830e6a526124ff3f744b0e325ffdbf34ebfdb8d8c30c6b12be47ec19876f
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: dashboard-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "763"
+    uid: 0a33bace-8dea-40da-9293-cf8710f7a158
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: dashboard-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "773"
+    uid: eeb08a47-f5fd-44c8-b96c-49469dd66dc8
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: dashboard-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "793"
+    uid: 210caebd-e524-49d0-ae34-5237b6c6085a
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: dashboard-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "804"
+    uid: 81a4008f-9c72-4f5c-8b30-9430902ec640
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+      - file:///opt/spaceone/dashboard/config/database.yaml
+      - file:///opt/spaceone/dashboard/config/shared.yaml
+      - file:///opt/spaceone/dashboard/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: dashboard
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: dashboard_user
+            password: dashboard_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/dashboard.log
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: dashboard-conf
+    namespace: cloudforet
+    resourceVersion: "849"
+    uid: 130fd28b-8d78-4587-899d-04b82e13f8dd
+- apiVersion: v1
+  data:
+    database.yaml: |-
+      DATABASES:
+        default:
+          authentication_source: admin
+          db: dashboard
+          host: localhost
+          maxPoolSize: 200
+          password: spaceonedbuser
+          port: 27028
+          read_preference: PRIMARY
+          username: admin
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: f0786443aae3f40b5a7039e91a03a9512db4fedabb6cd0aabbb583bf03d2090d
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: dashboard-database-conf
+    namespace: cloudforet
+    resourceVersion: "762"
+    uid: bb5ce1e2-a505-481a-bdc2-6eccabe9b738
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-file-manager
+          read_preference: PRIMARY
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: f2902b64b59274c2356bd7b875d0d790e51bf3a9beb687f32f661725e0804ada
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: file-manager-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "757"
+    uid: f397261a-d47e-4b21-a8bc-b0d75a08e3f3
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      BACKEND: AWSS3Connector
+      CONNECTORS:
+        AWSS3Connector:
+          aws_access_key_id: my_key
+          aws_secret_access_key: my_secret_key
+          bucket_name: default_bucket
+          region_name: default_region
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: f40de278ea94672f322933e74ee9b9d90e9550c56bd4f57b10c46b5c40a52a6d
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: file-manager-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "809"
+    uid: c0ac2c83-c2df-4155-a343-d6343547a8c0
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: file-manager-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "758"
+    uid: 083bb069-375e-48fc-8dd0-483632e635c0
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: file-manager-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "766"
+    uid: 2ed7b47b-ae60-4b63-9e9f-b13f58a476de
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+      - file:///opt/spaceone/file-manager/config/database.yaml
+      - file:///opt/spaceone/file-manager/config/shared.yaml
+      - file:///opt/spaceone/file-manager/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: file-manager
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: secret_user
+            password: secret_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/file_manager.log
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: file-manager-conf
+    namespace: cloudforet
+    resourceVersion: "815"
+    uid: 73697d3f-8b4d-4074-92ea-4c4fe45f0672
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: file-manager-database-conf
+    namespace: cloudforet
+    resourceVersion: "785"
+    uid: 76412155-17fd-4ef0-80a5-db2e48fe24ce
+- apiVersion: v1
+  data:
+    nginx.conf: |2-
+
+      user  nginx;
+      worker_processes  auto;
+      error_log  /var/log/nginx/error.log warn;
+
+      pid        /var/run/nginx.pid;
+
+      events {
+          worker_connections  1024;
+      }
+
+      http {
+          include       /etc/nginx/mime.types;
+          default_type  application/octet-stream;
+
+          client_max_body_size 10M;
+          charset utf-8;
+
+          log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                            '$status $body_bytes_sent "$http_referer" '
+                            '"$http_user_agent" "$http_x_forwarded_for"';
+
+          access_log  /var/log/nginx/access.log  main;
+
+          sendfile        on;
+          tcp_nopush     on;
+
+          keepalive_timeout  65;
+
+          server_tokens off;
+
+          include /etc/nginx/conf.d/*.conf;
+      }
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: file-manager-rest-nginx-conf
+    namespace: cloudforet
+    resourceVersion: "859"
+    uid: fb690f1b-dbb1-42dd-b5cd-71c54c3557a4
+- apiVersion: v1
+  data:
+    proxy.conf: |2-
+
+      server {
+        listen 80;
+
+        access_log /dev/stdout main;
+        error_log  /dev/stderr warn;
+
+        client_max_body_size 10M;
+
+        location / {
+          client_max_body_size 10M;
+          proxy_pass http://127.0.0.1:8000/;
+
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+      }
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: file-manager-rest-nginx-proxy-conf
+    namespace: cloudforet
+    resourceVersion: "835"
+    uid: 07ce390d-ba6b-4ffb-a18e-12495fb1eee8
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-identity
+          read_preference: PRIMARY
+      ENDPOINTS: []
+      INTERNAL_ENDPOINTS:
+      - endpoint: grpc://identity:50051
+        name: Identity Service
+        service: identity
+      - endpoint: grpc://inventory:50051
+        name: Inventory Service
+        service: inventory
+      - endpoint: grpc://repository:50051
+        name: Repository Service
+        service: repository
+      - endpoint: grpc://secret:50051
+        name: Secret Service
+        service: secret
+      - endpoint: grpc://monitoring:50051
+        name: Monitoring Service
+        service: monitoring
+      - endpoint: grpc://config:50051
+        name: Config Service
+        service: config
+      - endpoint: grpc://plugin:50051
+        name: Plugin Manager
+        service: plugin
+      - endpoint: grpc://statistics:50051
+        name: Statistics Service
+        service: statistics
+      - endpoint: grpc://notification:50051
+        name: Notification Service
+        service: notification
+      - endpoint: grpc://cost-analysis:50051
+        name: Cost Analysis Service
+        service: cost_analysis
+      - endpoint: grpc://board:50051
+        name: Board Service
+        service: board
+      - endpoint: grpc://file-manager:50051
+        name: File Manager
+        service: file_manager
+      - endpoint: grpc://dashboard:50051
+        name: Dashboard Service
+        service: dashboard
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: b950da94162bd9f14e93f88ecb4fc5eb8b9ab29256ce70635ae794cb73f78698
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: identity-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "760"
+    uid: 4a8b36a2-c88b-4057-9fa9-aecb7293d1a6
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: identity-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "759"
+    uid: abc42d85-128b-4c57-8715-ae2b90830184
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      QUEUES:
+        identity_q:
+          backend: spaceone.core.queue.redis_queue.RedisQueue
+          channel: identity_job
+          host: redis
+          port: 6379
+      SCHEDULERS:
+        dormancy_scheduler:
+          backend: spaceone.identity.interface.task.v1.dormancy_scheduler.DormancyScheduler
+          interval: 1
+          minute: :30
+          queue: identity_q
+        expiring_app_check_scheduler:
+          backend: spaceone.identity.interface.task.v1.expiring_app_check_scheduler.ExpiringAppCheckScheduler
+          interval: 1
+          minute: :00
+          queue: identity_q
+        trusted_account_sync_scheduler:
+          backend: spaceone.identity.interface.task.v1.trusted_account_sync_scheduler.TrustedAccountSyncScheduler
+          interval: 1
+          minute: :00
+          queue: identity_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 2bf0becd6798c736dce20814f421bb508f496e47bd4d22665dc63212949f316e
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: identity-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "800"
+    uid: dc2650cf-387c-4814-a1d1-37e5cd7d4fdb
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      QUEUES:
+        identity_q:
+          backend: spaceone.core.queue.redis_queue.RedisQueue
+          channel: identity_job
+          host: redis
+          port: 6379
+      WORKERS:
+        identity_worker:
+          backend: spaceone.core.scheduler.worker.BaseWorker
+          pool: 1
+          queue: identity_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: ea6f866e5b22398ab7cd243a4e4e9c76e54efb716d2185f3eee00c3e08e9e359
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: identity-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "783"
+    uid: 25d026f5-3c1c-4ecd-9b94-ba54f6beeb27
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+        - file:///opt/spaceone/identity/config/database.yaml
+        - file:///opt/spaceone/identity/config/shared.yaml
+        - file:///opt/spaceone/identity/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: identity
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: identity_user
+            password: identity_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/identity.log
+
+        QUEUES:
+          identity_q:
+            backend: spaceone.core.queue.redis_queue.RedisQueue
+            host: redis
+            port: 6379
+            channel: identity_job
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: identity-conf
+    namespace: cloudforet
+    resourceVersion: "805"
+    uid: a7aa4f43-3122-4abf-b9df-0e0d85aa9a3b
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: identity-database-conf
+    namespace: cloudforet
+    resourceVersion: "771"
+    uid: 6b1e0ef0-d62b-4198-b73d-1d3e6beababf
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-inventory
+          read_preference: PRIMARY
+      collect_queue: collector_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 3f7c26c45d902335074205bcad8da77eb599b79545413b0f124b62a74ac9cc57
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: inventory-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "855"
+    uid: cf477242-c0c0-4a45-a4c0-66caa3948836
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: inventory-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "774"
+    uid: c7101eb8-33f4-467b-b9c6-55c44f4c4c8e
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-inventory
+          read_preference: PRIMARY
+      QUEUES:
+        collector_q:
+          backend: spaceone.core.queue.redis_queue.RedisQueue
+          channel: collector
+          host: redis
+          port: 6379
+      SCHEDULERS:
+        cleanup_scheduler:
+          backend: spaceone.inventory.interface.task.v1.cleanup_scheduler.CleanupScheduler
+          interval: 1
+          minute: :10
+          queue: collector_q
+        hourly_scheduler:
+          backend: spaceone.inventory.interface.task.v1.inventory_scheduler.InventoryHourlyScheduler
+          interval: 1
+          minute: :00
+          queue: collector_q
+        metric_scheduler:
+          backend: spaceone.inventory.interface.task.v1.metric_scheduler.MetricScheduler
+          interval: 1
+          minute: :30
+          queue: collector_q
+        stats_scheduler:
+          backend: spaceone.inventory.interface.task.v1.cloud_service_stats_scheduler.CloudServiceStatsScheduler
+          interval: 1
+          minute: :30
+          queue: collector_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 7b4034d65c9afedbd9d9b6ee2de9fc026997ecc65c3cfa5e22f6886bbb7eadec
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: inventory-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "789"
+    uid: 848a3a9a-b3bc-41cc-ba7f-60ea7be14955
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-inventory
+          read_preference: PRIMARY
+      HANDLERS:
+        authentication: []
+        authorization: []
+        mutation: []
+      QUEUES:
+        collector_q:
+          backend: spaceone.core.queue.redis_queue.RedisQueue
+          channel: collector
+          host: redis
+          port: 6379
+      WORKERS:
+        collector_worker:
+          backend: spaceone.core.scheduler.worker.BaseWorker
+          pool: 1
+          queue: collector_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 2bc60ad93a6c78b21754add6a648eb7e43c93657a51a11fc699cd5e6a4f63cdb
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: inventory-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "813"
+    uid: 0fbb55aa-1e4e-4206-b976-c8c508829d9b
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+      - file:///opt/spaceone/inventory/config/database.yaml
+      - file:///opt/spaceone/inventory/config/shared.yaml
+      - file:///opt/spaceone/inventory/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: inventory
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: inventory_user
+            password: inventory_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/inventory.log
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: inventory-conf
+    namespace: cloudforet
+    resourceVersion: "839"
+    uid: 6d2bfef6-6c6b-45be-8647-796cd41589d6
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: inventory-database-conf
+    namespace: cloudforet
+    resourceVersion: "812"
+    uid: 45c388ec-3c22-444e-9306-b7f22fc2422c
+- apiVersion: v1
+  data:
+    ca.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIBdzCCAR2gAwIBAgIBADAKBggqhkjOPQQDAjAjMSEwHwYDVQQDDBhrM3Mtc2Vy
+      dmVyLWNhQDE3Njc0MDk4NDgwHhcNMjYwMTAzMDMxMDQ4WhcNMzYwMTAxMDMxMDQ4
+      WjAjMSEwHwYDVQQDDBhrM3Mtc2VydmVyLWNhQDE3Njc0MDk4NDgwWTATBgcqhkjO
+      PQIBBggqhkjOPQMBBwNCAARQ6c6bKVfIyv8KLlw/e0rN+S7pXUaaciYcG8A+gxHB
+      GfDovsBpk1JTHrVPaK4LqNWRxleiu+v49DjtulnIQdFUo0IwQDAOBgNVHQ8BAf8E
+      BAMCAqQwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU+pdQyM2XeFSSkGZatPoW
+      CNGouY4wCgYIKoZIzj0EAwIDSAAwRQIgfmT721MbK5CHbGdH3r1Qfk7sbOmlzpaQ
+      0+NygLMUnywCIQD7FwD/MFWUq9l32kOo6EjZAqZWZWYWxhdLU0iwGdXEEQ==
+      -----END CERTIFICATE-----
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubernetes.io/description: Contains a CA bundle that can be used to verify the
+        kube-apiserver when using internal endpoints such as the internal service
+        IP or kubernetes.default.svc. No other usage is guaranteed across distributions
+        of Kubernetes clusters.
+    creationTimestamp: "2026-01-03T03:11:45Z"
+    name: kube-root-ca.crt
+    namespace: cloudforet
+    resourceVersion: "729"
+    uid: 9eb477de-e019-4c53-bd80-6168fddb487d
+- apiVersion: v1
+  data:
+    user.js: |2-
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "identity_user",
+                          pwd: "identity_password",
+                          roles: [ {role: "readWrite", db: "identity" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "secret_user",
+                          pwd: "secret_password",
+                          roles: [ {role: "readWrite", db: "secret" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "repository_user",
+                          pwd: "repository_password",
+                          roles: [ {role: "readWrite", db: "repository" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "plugin_user",
+                          pwd: "plugin_password",
+                          roles: [ {role: "readWrite", db: "plugin" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "config_user",
+                          pwd: "config_password",
+                          roles: [ {role: "readWrite", db: "config" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "inventory_user",
+                          pwd: "inventory_password",
+                          roles: [ {role: "readWrite", db: "inventory" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "monitoring_user",
+                          pwd: "monitoring_password",
+                          roles: [ {role: "readWrite", db: "monitoring" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "statistics_user",
+                          pwd: "statistics_password",
+                          roles: [ {role: "readWrite", db: "statistics" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "billing_user",
+                          pwd: "billing_password",
+                          roles: [ {role: "readWrite", db: "billing" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "notification_user",
+                          pwd: "notification_password",
+                          roles: [ {role: "readWrite", db: "notification" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "cost_saving_user",
+                          pwd: "cost_saving_password",
+                          roles: [ {role: "readWrite", db: "cost_saving" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "cost_analysis_user",
+                          pwd: "cost_analysis_password",
+                          roles: [ {role: "readWrite", db: "cost-analysis" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "power_scheduler_user",
+                          pwd: "power_scheduler_password",
+                          roles: [ {role: "readWrite", db: "power_scheduler" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "spot_automation_user",
+                          pwd: "spot_automation_password",
+                          roles: [ {role: "readWrite", db: "spot_automation" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "board_user",
+                          pwd: "board_password",
+                          roles: [ {role: "readWrite", db: "board" } ]
+                      }
+      );
+
+      db.auth('admin','password')
+      db.createUser(
+              {
+                          user: "dashboard_user",
+                          pwd: "dashboard_password",
+                          roles: [ {role: "readWrite", db: "dashboard" } ]
+                      }
+      );
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: mongodb-user-conf
+    namespace: cloudforet
+    resourceVersion: "817"
+    uid: c16579b3-e2d0-4c08-8b9c-2ab348eb39a7
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-monitoring
+          read_preference: PRIMARY
+      INSTALLED_DATA_SOURCE_PLUGINS:
+      - name: AWS CloudWatch
+        plugin_info:
+          plugin_id: plugin-aws-cloudwatch-mon-datasource
+          provider: aws
+      - name: Azure Monitor
+        plugin_info:
+          plugin_id: plugin-azure-monitor-mon-datasource
+          provider: azure
+      - name: Google Cloud Monitoring
+        plugin_info:
+          plugin_id: plugin-google-stackdriver-mon-datasource
+          provider: google_cloud
+      - name: AWS CloudTrail
+        plugin_info:
+          plugin_id: plugin-aws-cloudtrail-mon-datasource
+          provider: aws
+      - name: Azure Activity Log
+        plugin_info:
+          plugin_id: plugin-azure-activity-log-mon-datasource
+          provider: azure
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 3dc436233c0c7e7e6fa04ed41c4501c7b9f80ac304fe648cf1ccf8349ba48b8c
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: monitoring-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "840"
+    uid: 0190a0be-0028-416d-8eb1-4ff3e570ac4a
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      nginx:
+        image:
+          imagePullPolicy: IfNotPresent
+          name: nginx
+          version: stable
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 365f793ab599c5ffa78eefd76a5493c3cd118a9f2c80e795d736a7051cba437e
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: monitoring-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "838"
+    uid: 46070b7e-ebc6-4e3e-a8dc-96a6f68aa82e
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-monitoring
+          read_preference: PRIMARY
+      SCHEDULERS:
+        monitoring_scheduler:
+          backend: spaceone.monitoring.interface.task.v1.monitoring_alert_scheduler.MonitoringAlertScheduler
+          interval: 60
+          queue: monitoring_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 01b0f6c388fec5959c3c1a1e0bb64c0b5c3d3f7c0f9fea4e462108da58de4f0f
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: monitoring-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "818"
+    uid: afa78f36-c1e5-46d2-b546-365241572610
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-monitoring
+          read_preference: PRIMARY
+      WORKERS:
+        monitoring_worker:
+          backend: spaceone.core.scheduler.worker.BaseWorker
+          pool: 1
+          queue: monitoring_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 6a4984088e68939919b13948a96f421fad9fd194e7e7d7bd1bf88f96d42536bd
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: monitoring-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "814"
+    uid: 9b013279-2733-41b6-86f2-ba58f858f2ce
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+        - file:///opt/spaceone/monitoring/config/database.yaml
+        - file:///opt/spaceone/monitoring/config/shared.yaml
+        - file:///opt/spaceone/monitoring/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: monitoring
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: monitoring_user
+            password: monitoring_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            db: 1
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/monitoring.log
+        QUEUES:
+          monitoring_q:
+            backend: spaceone.core.queue.redis_queue.RedisQueue
+            host: redis
+            port: 6379
+            db: 1
+            channel: monitoring_alert
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: monitoring-conf
+    namespace: cloudforet
+    resourceVersion: "850"
+    uid: ee611534-dd9b-4b40-b5b1-f5d588412fb8
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: monitoring-database-conf
+    namespace: cloudforet
+    resourceVersion: "830"
+    uid: dff4b057-7d09-4c52-849e-1207b897360a
+- apiVersion: v1
+  data:
+    nginx.conf: |2-
+
+      user  nginx;
+      worker_processes  auto;
+      error_log  /var/log/nginx/error.log warn;
+
+      pid        /var/run/nginx.pid;
+
+      events {
+          worker_connections  1024;
+      }
+
+      http {
+          include       /etc/nginx/mime.types;
+          default_type  application/octet-stream;
+
+          log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                            '$status $body_bytes_sent "$http_referer" '
+                            '"$http_user_agent" "$http_x_forwarded_for"';
+
+          access_log  /var/log/nginx/access.log  main;
+
+          sendfile        on;
+          tcp_nopush     on;
+
+          keepalive_timeout  65;
+
+          server_tokens off;
+
+          include /etc/nginx/conf.d/*.conf;
+      }
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: monitoring-rest-nginx-conf
+    namespace: cloudforet
+    resourceVersion: "857"
+    uid: dc72f66b-af4f-4061-a9e8-0eec035b4e0a
+- apiVersion: v1
+  data:
+    proxy.conf: |2-
+
+      server {
+        listen 80;
+
+        access_log /dev/stdout main;
+        error_log /dev/stderr warn;
+
+        location / {
+          proxy_pass http://localhost:8000/;
+
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+      }
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: monitoring-rest-nginx-proxy-conf
+    namespace: cloudforet
+    resourceVersion: "768"
+    uid: 24f9a02f-e9b7-4e9e-bf39-3d72b38af4ce
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-notification
+          read_preference: PRIMARY
+      DEFAULT_QUOTA:
+        plugin-ms-teams-noti-protocol:
+          day: -1
+          month: -1
+        plugin-slack-noti-protocol:
+          day: -1
+          month: -1
+        plugin-telegram-noti-protocol:
+          day: -1
+          month: -1
+      INSTALLED_PROTOCOL_PLUGINS:
+      - name: MS Teams
+        plugin_info:
+          plugin_id: plugin-ms-teams-noti-protocol
+      - name: Slack
+        plugin_info:
+          options: {}
+          plugin_id: slack-notification-protocol
+          schema: slack_webhook
+      - name: Telegram
+        plugin_info:
+          options: {}
+          plugin_id: plugin-telegram-noti-protocol
+          schema: telegram_auth_token
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 6e65a97da5892282ab6caf5f895ecebd90349f1635dcbc54961a0cdc77145fef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: notification-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "784"
+    uid: 120e0aa3-7bab-47b0-b4b1-1426c9637f11
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: notification-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "796"
+    uid: 408dfd9a-16f7-47dc-8f6a-46d30755c927
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-notification
+          read_preference: PRIMARY
+      SCHEDULERS:
+        delete_notification_scheduler:
+          backend: spaceone.notification.interface.task.v1.delete_old_notification_scheduler.DeleteOldNotificationScheduler
+          interval: 86400
+          queue: notification_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 83e4d3cb1981a7c4bdc55c8bdfa7f1af084ed0252a1bd9d99d5a9dec9eb6b250
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: notification-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "816"
+    uid: b6a49134-8be8-4b31-b262-8cfe4295fc96
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-notification
+          read_preference: PRIMARY
+      DEFAULT_QUOTA:
+        plugin-ms-teams-noti-protocol:
+          day: -1
+          month: -1
+        plugin-slack-noti-protocol:
+          day: -1
+          month: -1
+        plugin-telegram-noti-protocol:
+          day: -1
+          month: -1
+      WORKERS:
+        notification_worker:
+          backend: spaceone.core.scheduler.worker.BaseWorker
+          pool: 1
+          queue: notification_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: cf5070487eb3d4c419721d1afe0256fe1b876ca76cbdd1a80beebf49058d55f1
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: notification-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "819"
+    uid: 5cd7f256-d72c-4566-bccd-ff0f6b073746
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+      - file:///opt/spaceone/notification/config/database.yaml
+      - file:///opt/spaceone/notification/config/shared.yaml
+      - file:///opt/spaceone/notification/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: notification
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: notification_user
+            password: notification_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            db: 1
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/notification.log
+        CONNECTORS:
+          IdentityConnector:
+            endpoint:
+              v1: grpc://identity:50051
+          SecretConnector:
+            endpoint:
+              v1: grpc://secret:50051
+          PluginConnector:
+            endpoint:
+              v1: grpc://plugin:50051
+          RepositoryConnector:
+            endpoint:
+              v1: grpc://repository:50051
+        QUEUES:
+          notification_q:
+            backend: spaceone.core.queue.redis_queue.RedisQueue
+            host: redis
+            port: 6379
+            channel: notification_job
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: notification-conf
+    namespace: cloudforet
+    resourceVersion: "856"
+    uid: d86deef8-b770-4037-80bc-e40af71f9487
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: notification-database-conf
+    namespace: cloudforet
+    resourceVersion: "754"
+    uid: 3057fbb5-65f4-43f0-a955-439a002c7276
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-plugin
+          read_preference: PRIMARY
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: b77c67a6516af62ad8ad1c16d5f42473db37ee85ddd53ca44c46a28b1fdefb70
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: plugin-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "753"
+    uid: dcdb767d-de02-4d7c-a99a-99ad725a6acd
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: plugin-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "841"
+    uid: 5f6ca74d-8b46-44c7-90b6-c3dc6f19b49d
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-plugin
+          read_preference: PRIMARY
+      QUEUES:
+        plugin_cleanup_q:
+          backend: spaceone.core.queue.redis_queue.RedisQueue
+          channel: plugin_cleanup_q
+          host: redis
+          port: 6379
+      SCHEDULERS:
+        cleanup_scheduler:
+          backend: spaceone.plugin.scheduler.cleanup_scheduler.CleanupScheduler
+          interval: 1
+          minute: :01
+          queue: plugin_cleanup_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 6b969bcb605c18925dcc6f80d940acaf76bccaf89cff2f4df0c484fcc32895ec
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: plugin-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "852"
+    uid: 0d4b1efe-45d1-4d45-a105-f2dfb04ab7e9
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-plugin
+          read_preference: PRIMARY
+      QUEUES:
+        plugin_cleanup_q:
+          backend: spaceone.core.queue.redis_queue.RedisQueue
+          channel: plugin_cleanup_q
+          host: redis
+          port: 6379
+      WORKERS:
+        cleanup_worker:
+          backend: spaceone.core.scheduler.worker.BaseWorker
+          pool: 1
+          queue: plugin_cleanup_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: f153b505a208d77377fd70db0c9a0a97667b89c189d8d627c70ccce515d6c787
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: plugin-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "767"
+    uid: 5f634b7b-99e5-4a6c-94c7-eedfb5200212
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+        - file:///opt/spaceone/plugin/config/database.yaml
+        - file:///opt/spaceone/plugin/config/shared.yaml
+        - file:///opt/spaceone/plugin/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: plugin
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: plugin_user
+            password: plugin_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            db: 1
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/plugin.log
+        CONNECTORS:
+          IdentityConnector:
+            endpoint:
+              v1: grpc://identity:50051
+          SecretConnector:
+            endpoint:
+              v1: grpc://secret:50051
+          PluginConnector:
+            endpoint:
+              v1: grpc://plugin:50051
+          RepositoryConnector:
+            endpoint:
+              v1: grpc://repository:50051
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: plugin-conf
+    namespace: cloudforet
+    resourceVersion: "846"
+    uid: 922e8575-7598-45c0-83b5-ca0730d36a29
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: plugin-database-conf
+    namespace: cloudforet
+    resourceVersion: "761"
+    uid: 44d40f67-5194-46c5-89c9-250f17e73d38
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-repository
+          read_preference: PRIMARY
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 5174966be22c4991210ea17a881cd6eae031804dc91d1558f5e7ccba31ace604
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: repository-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "834"
+    uid: f1be3b8e-dad1-4f1e-bf5b-4677f3efb86d
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: repository-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "848"
+    uid: c7bda58e-c4e9-4839-8551-fb60318465b5
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: repository-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "802"
+    uid: a648c5b9-c31d-43d6-a762-809ef892adf3
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: repository-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "778"
+    uid: a6925fd2-2316-45c9-853f-c178bc684e52
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+      - file:///opt/spaceone/repository/config/database.yaml
+      - file:///opt/spaceone/repository/config/shared.yaml
+      - file:///opt/spaceone/repository/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: repository
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: repository_user
+            password: repository_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            db: 1
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/repository.log
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: repository-conf
+    namespace: cloudforet
+    resourceVersion: "790"
+    uid: 7fe28921-9123-4991-8539-f63ab80865ab
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: repository-database-conf
+    namespace: cloudforet
+    resourceVersion: "772"
+    uid: 758b7325-863d-4540-91c7-39d04dc30b71
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      ENDPOINTS:
+      - endpoint: grpc+ssl://identity:443/v1
+        name: Identity Service
+        service: identity
+      - endpoint: grpc+ssl://inventory:443/v1
+        name: Inventory Service
+        service: inventory
+      - endpoint: grpc+ssl://plugin:443/v1
+        name: Plugin Manager
+        service: plugin
+      - endpoint: grpc+ssl://repository:443/v1
+        name: Repository Service
+        service: repository
+      - endpoint: grpc+ssl://secret:443/v1
+        name: Secret Manager
+        service: secret
+      - endpoint: grpc+ssl://monitoring:443/v1
+        name: Monitoring Service
+        service: monitoring
+      - endpoint: grpc+ssl://config:443/v1
+        name: Config Service
+        service: config
+      - endpoint: grpc+ssl://power-scheduler:443/v1
+        name: Power Scheduler Service
+        service: power_scheduler
+      - endpoint: grpc+ssl://statistics:443/v1
+        name: Statistics Service
+        service: statistics
+      - endpoint: grpc+ssl://billing:443/v1
+        name: Billing Service
+        service: billing
+      - endpoint: grpc+ssl://notification:443/v1
+        name: Notification Service
+        service: notification
+      - endpoint: grpc+ssl://search:443/v1
+        name: Search Service
+        service: search
+      LOG:
+        filters:
+          exclude:
+            rules:
+              tnx_method:
+              - Domain.get_public_key
+              - Authorization.verify
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: b26bf743fc020f40995948762326379bfa544454193c25d7e22adbe25d099d96
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: search-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "780"
+    uid: 4d52acff-792d-4808-b643-713f5da61e5e
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: search-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "764"
+    uid: f8a50fc2-dcbf-4806-aa3f-a25b3b9f5ba3
+- apiVersion: v1
+  data:
+    application.yaml: "null"
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: a9dc16a7a3875d174c1af4f923f261cafc124357f2322493a59ee0d14fcd10db
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: search-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "769"
+    uid: 0ef10e4b-f558-462b-8fc8-41ece96cfed0
+- apiVersion: v1
+  data:
+    application.yaml: "null"
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: a9dc16a7a3875d174c1af4f923f261cafc124357f2322493a59ee0d14fcd10db
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: search-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "788"
+    uid: ca26c76a-40ed-4afa-9bc6-dd460ae2cfe6
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+        - file:///opt/spaceone/search/config/database.yaml
+        - file:///opt/spaceone/search/config/shared.yaml
+        - file:///opt/spaceone/search/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: search
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: search_user
+            password: search_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/search.log
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: search-conf
+    namespace: cloudforet
+    resourceVersion: "844"
+    uid: 415e4ebc-6856-40d9-8ceb-502be3b99424
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: search-database-conf
+    namespace: cloudforet
+    resourceVersion: "820"
+    uid: 69efb903-1754-4350-915b-2ce02ca51c03
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      BACKEND: MongoDBConnector
+      CONNECTORS:
+        MongoDBConnector:
+          host: mongodb
+          password: password
+          port: 27017
+          username: admin
+      DATABASES:
+        default:
+          db: v2-secret
+          read_preference: PRIMARY
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 04f9cf045fcce835580f5f56c489a622fc942f97359dd8b8e7d6c67c2e4d7005
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: secret-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "831"
+    uid: c2c8d307-fbbe-4baf-859c-3a7a3a5d6262
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: secret-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "832"
+    uid: cf5f9afd-0b8c-4636-b31e-1f61e84dd022
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: secret-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "821"
+    uid: e075960a-eb45-40a5-85c2-63bbb057484a
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: secret-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "842"
+    uid: d898b9f9-a386-42ee-990e-b96b03570bda
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+        - file:///opt/spaceone/secret/config/database.yaml
+        - file:///opt/spaceone/secret/config/shared.yaml
+        - file:///opt/spaceone/secret/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: secret
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: secret_user
+            password: secret_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/secret.log
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: secret-conf
+    namespace: cloudforet
+    resourceVersion: "851"
+    uid: 0ef854bc-fdb7-4752-8134-4106514fce0e
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: secret-database-conf
+    namespace: cloudforet
+    resourceVersion: "853"
+    uid: 8e50e6a9-8338-439f-a0a9-9a5e77d8db2e
+- apiVersion: v1
+  data:
+    shared.yaml: |-
+      CACHES:
+        default:
+          backend: spaceone.core.cache.redis_cache.RedisCache
+          db: 0
+          encoding: utf-8
+          host: redis
+          port: 6379
+          socket_connect_timeout: 10
+          socket_timeout: 10
+      CONNECTORS:
+        ConfigConnector:
+          endpoint:
+            v1: grpc://config:50051
+        IdentityConnector:
+          endpoint:
+            v1: grpc://identity:50051
+        InventoryConnector:
+          endpoint:
+            v1: grpc://inventory:50051
+        MonitoringConnector:
+          endpoint:
+            v1: grpc://monitoring:50051
+        NotificationConnector:
+          endpoint:
+            v1: grpc://notification:50051
+        PluginConnector:
+          endpoint:
+            v1: grpc://plugin:50051
+        RepositoryConnector:
+          endpoint:
+            v1: grpc://repository:50051
+        SecretConnector:
+          endpoint:
+            v1: grpc://secret:50051
+        SpaceConnector:
+          endpoints:
+            board: grpc://board:50051
+            config: grpc://config:50051
+            cost_analysis: grpc://cost-analysis:50051
+            file_manager: grpc://file-manager:50051
+            identity: grpc://identity:50051
+            inventory: grpc://inventory:50051
+            monitoring: grpc://monitoring:50051
+            notification: grpc://notification:50051
+            repository: grpc://repository:50051
+            secret: grpc://secret:50051
+            statistics: grpc://statistics:50051
+        StatisticsConnector:
+          endpoint:
+            v1: grpc://statistics:50051
+      DATABASES:
+        default:
+          host: mongodb
+          password: password
+          port: 27017
+          username: admin
+      HANDLERS:
+        authentication:
+        - backend: spaceone.core.handler.authentication_handler:SpaceONEAuthenticationHandler
+        authorization:
+        - backend: spaceone.core.handler.authorization_handler:SpaceONEAuthorizationHandler
+        mutation:
+        - backend: spaceone.core.handler.mutation_handler:SpaceONEMutationHandler
+      TOKEN: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzcGFjZW9uZS5pZGVudGl0eSIsInR5cCI6IlNZU1RFTV9UT0tFTiIsIm93biI6IlNZU1RFTSIsImRpZCI6ImRvbWFpbi1yb290IiwiYXVkIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiI1MzhkNjkzOWEwZGVhNTYzMWY3ZGE2Y2Q0ODgxZGUxOCIsImlhdCI6MTc2NzQxMjM2NiwidmVyIjoiMi4wIn0.aGLByw0_PWWb8ICkBqNqjEWWX_VMgcIZ6fBuCOX9FOgC31CS32AfFe8tJwBL3eltyzpt8RbcHbU1LjKYuP2CZk_yoaAPenPVopOmqSienxgQamsvprD5vWvSisUAlX9RGjjxrzAxh2MUWaIv3PzIMzwnBqurxyIw6O5TPKMTLO7DYi7HUgM9wuPmU19lUeeyT1O0aF6pFUzBoab6RZ9sEPo6_jxm9kh1c3cb-aQ3kSvo8kda1KYwulVOa7O34REVHiNIn4hPEN_3CxXmNHCu97WMTEIIQzWUadQaoKxnRWwjiY7qf8_OJZiUc0S3toRjtT6Pjs1h6NiLNXXVlOVb1Q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: shared-conf
+    namespace: cloudforet
+    resourceVersion: "3031"
+    uid: fed61d18-ca47-4264-997d-87c464412973
+- apiVersion: v1
+  data:
+    default.yaml: |2-
+
+      endpoints:
+        identity: grpc://identity:50051
+        inventory: grpc://inventory:50051
+        monitoring: grpc://monitoring:50051
+        plugin: grpc://plugin:50051
+        repository: grpc://repository:50051
+        cost_analysis: grpc://cost-analysis:50051
+        secret: grpc://secret:50051
+        statistics: grpc://statistics:50051
+        config: grpc://config:50051
+        notification: grpc://notification:50051
+        board: grpc://board:50051
+        file_manager: grpc://file-manager:50051
+        dashboard: grpc://dashboard:50051
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: spacectl-environment-conf
+    namespace: cloudforet
+    resourceVersion: "858"
+    uid: 40312711-be68-4996-a2b0-a917190ca2b1
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-statistics
+          read_preference: PRIMARY
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 3c861a529a6088c01b7144a5259f97938596121ddbbbcf312a811dbeaff12428
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: statistics-application-grpc-conf
+    namespace: cloudforet
+    resourceVersion: "822"
+    uid: d554a616-690c-46d3-a761-89dd4ff3795c
+- apiVersion: v1
+  data:
+    application.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: statistics-application-rest-conf
+    namespace: cloudforet
+    resourceVersion: "836"
+    uid: 6d5959e8-9065-4c25-94ac-e5b23ffeed51
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-statistics
+          read_preference: PRIMARY
+      QUEUES:
+        statistics_q:
+          backend: spaceone.core.queue.redis_queue.RedisQueue
+          channel: stat_scheduler
+          host: redis
+          port: 6379
+      SCHEDULERS:
+        hourly_scheduler:
+          backend: spaceone.statistics.interface.task.stat_hourly_scheduler.StatHourlyScheduler
+          interval: 1
+          minute: :01
+          queue: statistics_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 6efc531f042d5b00d29b7f09fc78e1bed2cd472d17c073534d0a4fd2f1871e81
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: statistics-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "837"
+    uid: d1d74eb3-1b0e-4581-9f5f-f612bf28993a
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      DATABASES:
+        default:
+          db: v2-statistics
+          read_preference: PRIMARY
+      QUEUES:
+        statistics_q:
+          backend: spaceone.core.queue.redis_queue.RedisQueue
+          channel: stat_scheduler
+          host: redis
+          port: 6379
+      WORKERS:
+        statistics_worker:
+          backend: spaceone.core.scheduler.worker.BaseWorker
+          pool: 1
+          queue: statistics_q
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 72dbbded96af0d87575884aff28295313c367251b9358f2acfc1d56939259737
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: statistics-application-worker-conf
+    namespace: cloudforet
+    resourceVersion: "829"
+    uid: 44ca56e7-d19e-4c9e-822b-de7fd9118ff5
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+      - file:///opt/spaceone/statistics/config/database.yaml
+      - file:///opt/spaceone/statistics/config/shared.yaml
+      - file:///opt/spaceone/statistics/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        DATABASES:
+          default:
+            db: statistics
+            host: mongodb
+            port: 27017
+            maxPoolSize: 200
+            username: statistics_user
+            password: statistics_password
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis
+            port: 6379
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/statistics.log
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: statistics-conf
+    namespace: cloudforet
+    resourceVersion: "824"
+    uid: 06c693d8-19d2-4a39-80a9-3875f956cd3a
+- apiVersion: v1
+  data:
+    database.yaml: '{}'
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: statistics-database-conf
+    namespace: cloudforet
+    resourceVersion: "833"
+    uid: 63cdc9e8-5df4-4c56-b1e5-6389c6a3703b
+- apiVersion: v1
+  data:
+    application.yaml: |-
+      BACKEND: KubernetesConnector
+      CONNECTORS:
+        KubernetesConnector:
+          end_port: 50052
+          headless: true
+          namespace: cloudforet-plugin
+          replica:
+            cost_analysis.DataSource: 1
+            inventory.Collector: 1
+            monitoring.DataSource: 1
+          start_port: 50051
+        PluginConnector:
+          endpoint:
+            v1: grpc://plugin:50051
+        RepositoryConnector:
+          endpoint:
+            v1: grpc://repository:50051
+      HOSTNAME: supervisor.svc.cluster.local
+      NAME: root
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","data":{"application.yaml":"BACKEND: KubernetesConnector\nCONNECTORS:\n  KubernetesConnector:\n    end_port: 50052\n    headless: true\n    namespace: cloudforet-plugin\n    replica:\n      cost_analysis.DataSource: 1\n      inventory.Collector: 1\n      monitoring.DataSource: 1\n    start_port: 50051\n  PluginConnector:\n    endpoint:\n      v1: grpc://plugin:50051\n  RepositoryConnector:\n    endpoint:\n      v1: grpc://repository:50051\nHOSTNAME: supervisor.svc.cluster.local\nNAME: root"},"kind":"ConfigMap","metadata":{"annotations":{"meta.helm.sh/release-name":"cloudforet","meta.helm.sh/release-namespace":"cloudforet","spaceone.auto-deploy-flag":"a01289b11b4e293aa7898bd14f545db011d1c4c931b535c2f107c6a8303b10d7"},"creationTimestamp":"2026-01-03T03:12:35Z","labels":{"app.kubernetes.io/managed-by":"Helm"},"name":"supervisor-application-scheduler-conf","namespace":"cloudforet","resourceVersion":"825","uid":"a5d74f4f-c4ee-44ed-bd37-2c0841b11cf8"}}
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+      spaceone.auto-deploy-flag: a01289b11b4e293aa7898bd14f545db011d1c4c931b535c2f107c6a8303b10d7
+    creationTimestamp: "2026-01-03T05:05:04Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: supervisor-application-scheduler-conf
+    namespace: cloudforet
+    resourceVersion: "7797"
+    uid: ea471920-3f55-41f3-af17-b8c8e37a6fb4
+- apiVersion: v1
+  data:
+    config.yaml: |2-
+
+      REMOTE_URL:
+        - file:///opt/spaceone/supervisor/config/shared.yaml
+        - file:///opt/spaceone/supervisor/config/application.yaml
+      GLOBAL:
+        MAX_WORKERS: 1000
+        CACHES:
+          default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: localhost
+            port: 6379
+            db: 1
+            encoding: utf-8
+            socket_timeout: 10
+            socket_connect_timeout: 10
+        LOG:
+          loggers:
+            spaceone:
+              handlers:
+                - console
+                - file
+          handlers:
+            file:
+              type: file
+              filename: /var/log/spaceone/supervisor.log
+        CONNECTORS:
+          IdentityConnector:
+            endpoint:
+              v1: grpc://identity:50051
+          PluginConnector:
+            endpoint:
+              v1: grpc://plugin:50051
+          RepositoryConnector:
+            endpoint:
+              v1: grpc://repository:50051
+        #    KubernetesConnector:
+        #        namespace: root-supervisor
+        #        start_port: 50051
+        #        end_port: 50052
+        #        headless: true
+        #        replica:
+        #            inventory.collector: 4
+
+        QUEUES:
+          default_q:
+            backend: spaceone.core.queue.redis_queue.RedisQueue
+            host: localhost
+            port: 6379
+            channel: supervisor_queue
+
+        SCHEDULERS:
+          sync:
+            backend: spaceone.supervisor.scheduler.sync_scheduler.SyncScheduler
+            queue: default_q
+            interval: 10
+
+      #  NAME: root
+      #  HOSTNAME: root-supervisor.svc.cluster.local
+      #  BACKEND: KubernetesConnector
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","data":{"config.yaml":"\nREMOTE_URL:\n  - file:///opt/spaceone/supervisor/config/shared.yaml\n  - file:///opt/spaceone/supervisor/config/application.yaml\nGLOBAL:\n  MAX_WORKERS: 1000\n  CACHES:\n    default:\n      backend: spaceone.core.cache.redis_cache.RedisCache\n      host: localhost\n      port: 6379\n      db: 1\n      encoding: utf-8\n      socket_timeout: 10\n      socket_connect_timeout: 10\n  LOG:\n    loggers:\n      spaceone:\n        handlers:\n          - console\n          - file\n    handlers:\n      file:\n        type: file\n        filename: /var/log/spaceone/supervisor.log\n  CONNECTORS:\n    IdentityConnector:\n      endpoint:\n        v1: grpc://identity:50051\n    PluginConnector:\n      endpoint:\n        v1: grpc://plugin:50051\n    RepositoryConnector:\n      endpoint:\n        v1: grpc://repository:50051\n  #    KubernetesConnector:\n  #        namespace: root-supervisor\n  #        start_port: 50051\n  #        end_port: 50052\n  #        headless: true\n  #        replica:\n  #            inventory.collector: 4\n\n  QUEUES:\n    default_q:\n      backend: spaceone.core.queue.redis_queue.RedisQueue\n      host: localhost\n      port: 6379\n      channel: supervisor_queue\n\n  SCHEDULERS:\n    sync:\n      backend: spaceone.supervisor.scheduler.sync_scheduler.SyncScheduler\n      queue: default_q\n      interval: 10\n\n#  NAME: root\n#  HOSTNAME: root-supervisor.svc.cluster.local\n#  BACKEND: KubernetesConnector"},"kind":"ConfigMap","metadata":{"annotations":{"meta.helm.sh/release-name":"cloudforet","meta.helm.sh/release-namespace":"cloudforet"},"creationTimestamp":"2026-01-03T03:12:35Z","labels":{"app.kubernetes.io/managed-by":"Helm"},"name":"supervisor-conf","namespace":"cloudforet","resourceVersion":"845","uid":"7c7a0547-cd04-4de7-bf95-6c2d3d682305"}}
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T05:04:59Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: supervisor-conf
+    namespace: cloudforet
+    resourceVersion: "7794"
+    uid: 617c663d-1b82-4703-ac9b-53483eadf8b1
+kind: List
+metadata:
+  resourceVersion: ""

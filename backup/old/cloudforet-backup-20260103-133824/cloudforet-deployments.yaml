@@ -1,0 +1,4747 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: board
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: board-1.3.12
+      spaceone.service: board
+    name: board
+    namespace: cloudforet
+    resourceVersion: "6446"
+    uid: 2371ec5b-6234-4e47-be43-e8649b97e9f1
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: board
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: bd67da806f366f1a73643415e4878aa64f079d07a185bc2b5eb3c1372a8e0e89
+          spaceone.database-flag: 1a734f07f8e87f4362a0b7bf45590cfd14655274fb2f24294b85c9b2623e8c25
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: board
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: board-1.3.12
+          spaceone.service: board
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/board/config/config.yaml
+          image: cloudforet/board:2.0.dev12
+          imagePullPolicy: IfNotPresent
+          name: board
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/board/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/board/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/board/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/board/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: board-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: board-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: board-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:40Z"
+      lastUpdateTime: "2026-01-03T03:15:30Z"
+      message: ReplicaSet "board-5687775b85" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: config
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: config-1.3.10
+      spaceone.service: config
+    name: config
+    namespace: cloudforet
+    resourceVersion: "6392"
+    uid: 8ad110b2-5b88-46b7-8097-1a8578a9622f
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: config
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 0fd482d0b9e3c3988dcf225d1293528b30534f7cdb1dcd47c14db4b4a1393435
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: config
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: config-1.3.10
+          spaceone.service: config
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/config/config/config.yaml
+          image: cloudforet/config:2.0.dev11
+          imagePullPolicy: IfNotPresent
+          name: config
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/config/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/config/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/config/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/config/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: config-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: config-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: config-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:14:22Z"
+      message: ReplicaSet "config-5c8d9cbc5c" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: console-1.2.17
+      spaceone.service: console
+    name: console
+    namespace: cloudforet
+    resourceVersion: "6380"
+    uid: c90770c0-28f2-4891-bc65-b57d0c410e5d
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: console
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.deployment.tool: helm
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: console
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: console-1.2.17
+          spaceone.service: console
+      spec:
+        containers:
+        - image: cloudforet/console:2.0.dev107
+          imagePullPolicy: IfNotPresent
+          name: console
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /var/www/config/production.json
+            name: console-conf
+            readOnly: true
+            subPath: production.json
+          - mountPath: /etc/nginx/nginx.conf
+            name: console-nginx-conf
+            readOnly: true
+            subPath: nginx.conf
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: console-conf
+          name: console-conf
+        - configMap:
+            defaultMode: 420
+            name: console-nginx-conf
+          name: console-nginx-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:38Z"
+      lastUpdateTime: "2026-01-03T03:14:13Z"
+      message: ReplicaSet "console-869b584bbf" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console-api
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: console-api-1.1.15
+      spaceone.service: console-api
+    name: console-api
+    namespace: cloudforet
+    resourceVersion: "6412"
+    uid: 583cc3c4-217b-4bf1-a60c-b25f6b6d6368
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: console-api
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.deployment.tool: helm
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: console-api
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: console-api-1.1.15
+          spaceone.service: console-api
+      spec:
+        containers:
+        - image: nginx:stable
+          imagePullPolicy: IfNotPresent
+          name: nginx-proxy
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d
+            name: console-api-nginx-proxy-conf
+            readOnly: true
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /etc/nginx/nginx.conf
+            name: console-api-nginx-conf
+            readOnly: true
+            subPath: nginx.conf
+        - image: cloudforet/console-api:2.0.dev35
+          imagePullPolicy: IfNotPresent
+          name: console-api
+          ports:
+          - containerPort: 3000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/wconsole-server/config/production.json
+            name: console-api-conf
+            readOnly: true
+            subPath: production.json
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: console-api-conf
+          name: console-api-conf
+        - configMap:
+            defaultMode: 420
+            name: console-api-nginx-conf
+          name: console-api-nginx-conf
+        - configMap:
+            defaultMode: 420
+            name: console-api-nginx-proxy-conf
+          name: console-api-nginx-proxy-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:15:04Z"
+      message: ReplicaSet "console-api-77779f48b5" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console-api-v2
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: console-api-v2-1.0.10
+      spaceone.service: console-api-v2
+    name: console-api-v2-rest
+    namespace: cloudforet
+    resourceVersion: "6435"
+    uid: 350ba814-ed3e-4698-9c27-3ccdb55bd12d
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: console-api-v2-rest
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 365f793ab599c5ffa78eefd76a5493c3cd118a9f2c80e795d736a7051cba437e
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: console-api-v2
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: console-api-v2-1.0.10
+          spaceone.service: console-api-v2-rest
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - rest-server
+          - cloudforet.console_api_v2
+          - -p
+          - "8000"
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/console-api-v2/config/config.yaml
+          image: cloudforet/console-api-v2:2.0.dev133
+          imagePullPolicy: IfNotPresent
+          name: console-api-v2-fastapi
+          ports:
+          - containerPort: 8000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/console-api-v2/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/console-api-v2/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/console-api-v2/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/console-api-v2/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        - image: nginx:stable
+          imagePullPolicy: IfNotPresent
+          name: console-api-v2-nginx
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/console-api-v2/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /etc/nginx/nginx.conf
+            name: rest-nginx-conf
+            readOnly: true
+            subPath: nginx.conf
+          - mountPath: /etc/nginx/conf.d
+            name: rest-nginx-proxy-conf
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: console-api-v2-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: console-api-v2-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: console-api-v2-application-rest-conf
+          name: application-conf
+        - configMap:
+            defaultMode: 420
+            name: console-api-v2-rest-nginx-conf
+          name: rest-nginx-conf
+        - configMap:
+            defaultMode: 420
+            name: console-api-v2-rest-nginx-proxy-conf
+          name: rest-nginx-proxy-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:38Z"
+      lastUpdateTime: "2026-01-03T03:14:31Z"
+      message: ReplicaSet "console-api-v2-rest-77c5df5f6d" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: cost-analysis
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: cost-analysis-1.4.2
+      spaceone.service: cost-analysis
+    name: cost-analysis
+    namespace: cloudforet
+    resourceVersion: "6401"
+    uid: 2b09e967-1ec2-4c72-ba9c-afed12e10703
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: cost-analysis
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: e7d590a5db40e5143b2934dfb8fa0c66055305eb3ad51eabee9c1fa0d1929f98
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: cost-analysis
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: cost-analysis-1.4.2
+          spaceone.service: cost-analysis
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/cost-analysis/config/config.yaml
+          image: cloudforet/cost-analysis:2.0.dev240
+          imagePullPolicy: IfNotPresent
+          name: cost-analysis
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/cost-analysis/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/cost-analysis/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/cost-analysis/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/cost-analysis/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: cost-analysis-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: cost-analysis-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: cost-analysis-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:39Z"
+      lastUpdateTime: "2026-01-03T03:13:53Z"
+      message: ReplicaSet "cost-analysis-759c44b977" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: cost-analysis
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: cost-analysis-1.4.2
+      spaceone.service: cost-analysis
+    name: cost-analysis-scheduler
+    namespace: cloudforet
+    resourceVersion: "6409"
+    uid: 06683059-fc9f-443c-9f6b-25c93470d370
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: cost-analysis-scheduler
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 7037f696594cc1491e8951f2c938cab424c695929a8e6f86a20b20fd2c9841f7
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: cost-analysis
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: cost-analysis-1.4.2
+          spaceone.service: cost-analysis-scheduler
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.cost_analysis
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/cost-analysis/config/config.yaml
+          image: cloudforet/cost-analysis:2.0.dev240
+          imagePullPolicy: IfNotPresent
+          name: cost-analysis-scheduler
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/cost-analysis/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/cost-analysis/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/cost-analysis/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/cost-analysis/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: cost-analysis-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: cost-analysis-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: cost-analysis-application-scheduler-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:36Z"
+      lastUpdateTime: "2026-01-03T03:13:53Z"
+      message: ReplicaSet "cost-analysis-scheduler-b86464866" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: cost-analysis
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: cost-analysis-1.4.2
+      spaceone.service: cost-analysis
+    name: cost-analysis-worker
+    namespace: cloudforet
+    resourceVersion: "6415"
+    uid: 622fae59-d50f-44f0-8e24-7367bfad3b4d
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: cost-analysis-worker
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 41fe9abb3333b42c84dcc49692588806d11a15363a079613128d1e33e767c564
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: cost-analysis
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: cost-analysis-1.4.2
+          spaceone.service: cost-analysis-worker
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.cost_analysis
+          - -m
+          - /opt
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/cost-analysis/config/config.yaml
+          image: cloudforet/cost-analysis:2.0.dev240
+          imagePullPolicy: IfNotPresent
+          name: cost-analysis-worker
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/cost-analysis/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/cost-analysis/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/cost-analysis/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/cost-analysis/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: cost-analysis-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: cost-analysis-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: cost-analysis-application-worker-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:37Z"
+      lastUpdateTime: "2026-01-03T03:13:53Z"
+      message: ReplicaSet "cost-analysis-worker-6874fb855f" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: dashboard
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: dashboard-1.3.12
+      spaceone.service: dashboard
+    name: dashboard
+    namespace: cloudforet
+    resourceVersion: "6421"
+    uid: 71a3559e-6257-475e-882b-d4a5f5d8217e
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: dashboard
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 4741830e6a526124ff3f744b0e325ffdbf34ebfdb8d8c30c6b12be47ec19876f
+          spaceone.database-flag: f0786443aae3f40b5a7039e91a03a9512db4fedabb6cd0aabbb583bf03d2090d
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: dashboard
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: dashboard-1.3.12
+          spaceone.service: dashboard
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/dashboard/config/config.yaml
+          image: cloudforet/dashboard:2.0.dev34
+          imagePullPolicy: IfNotPresent
+          name: dashboard
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/dashboard/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/dashboard/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/dashboard/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/dashboard/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: dashboard-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: dashboard-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: dashboard-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:37Z"
+      lastUpdateTime: "2026-01-03T03:14:46Z"
+      message: ReplicaSet "dashboard-657b4b8745" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: file-manager
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: file-manager-1.3.11
+      spaceone.service: file-manager
+    name: file-manager
+    namespace: cloudforet
+    resourceVersion: "6424"
+    uid: d40a3cee-d5ef-4109-bf9a-778549b0a25c
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: file-manager
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: f2902b64b59274c2356bd7b875d0d790e51bf3a9beb687f32f661725e0804ada
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: file-manager
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: file-manager-1.3.11
+          spaceone.service: file-manager
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/file-manager/config/config.yaml
+          image: cloudforet/file-manager:2.0.dev54
+          imagePullPolicy: IfNotPresent
+          name: file-manager
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/file-manager/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/file-manager/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/file-manager/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/file-manager/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: file-manager-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: file-manager-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: file-manager-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:38Z"
+      lastUpdateTime: "2026-01-03T03:14:06Z"
+      message: ReplicaSet "file-manager-bd77d75fc" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: file-manager
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: file-manager-1.3.11
+      spaceone.service: file-manager
+    name: file-manager-rest
+    namespace: cloudforet
+    resourceVersion: "6427"
+    uid: 3fe31e62-e79e-45ed-8836-fde7f4f3285e
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: file-manager-rest
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: f40de278ea94672f322933e74ee9b9d90e9550c56bd4f57b10c46b5c40a52a6d
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: file-manager
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: file-manager-1.3.11
+          spaceone.service: file-manager-rest
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - rest-server
+          - spaceone.file_manager
+          - -p
+          - "8000"
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/file-manager/config/config.yaml
+          image: cloudforet/file-manager:2.0.dev54
+          imagePullPolicy: IfNotPresent
+          name: file-manager-fastapi
+          ports:
+          - containerPort: 8000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/file-manager/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/file-manager/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/file-manager/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/file-manager/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        - image: nginx:stable
+          imagePullPolicy: IfNotPresent
+          name: file-manager-nginx
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/file-manager/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /etc/nginx/nginx.conf
+            name: rest-nginx-conf
+            readOnly: true
+            subPath: nginx.conf
+          - mountPath: /etc/nginx/conf.d
+            name: rest-nginx-proxy-conf
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: file-manager-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: file-manager-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: file-manager-application-rest-conf
+          name: application-conf
+        - configMap:
+            defaultMode: 420
+            name: file-manager-rest-nginx-conf
+          name: rest-nginx-conf
+        - configMap:
+            defaultMode: 420
+            name: file-manager-rest-nginx-proxy-conf
+          name: rest-nginx-proxy-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:36Z"
+      lastUpdateTime: "2026-01-03T03:14:06Z"
+      message: ReplicaSet "file-manager-rest-5db687c9b4" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "3"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 3
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: identity
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: identity-1.3.16
+      spaceone.service: identity
+    name: identity
+    namespace: cloudforet
+    resourceVersion: "6430"
+    uid: 12559beb-d891-4d3d-9298-b0c54cfb869a
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: identity
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: b950da94162bd9f14e93f88ecb4fc5eb8b9ab29256ce70635ae794cb73f78698
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: identity
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: identity-1.3.16
+          spaceone.service: identity
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/identity/config/config.yaml
+          image: cloudforet/identity:2.0.dev299
+          imagePullPolicy: IfNotPresent
+          name: identity
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/identity/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/identity/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/identity/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/identity/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: identity-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: identity-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: identity-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:37Z"
+      lastUpdateTime: "2026-01-03T03:59:15Z"
+      message: ReplicaSet "identity-645f44b79" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:55Z"
+      lastUpdateTime: "2026-01-03T04:25:55Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 3
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "3"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 3
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: identity
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: identity-1.3.16
+      spaceone.service: identity
+    name: identity-scheduler
+    namespace: cloudforet
+    resourceVersion: "6440"
+    uid: 60d31143-9fcc-4d80-9e9d-59963ee61ade
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: identity-scheduler
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 2bf0becd6798c736dce20814f421bb508f496e47bd4d22665dc63212949f316e
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: identity
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: identity-1.3.16
+          spaceone.service: identity-scheduler
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.identity
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/identity/config/config.yaml
+          image: cloudforet/identity:2.0.dev299
+          imagePullPolicy: IfNotPresent
+          name: identity-scheduler
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/identity/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/identity/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/identity/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/identity/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: identity-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: identity-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: identity-application-scheduler-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:59:15Z"
+      message: ReplicaSet "identity-scheduler-64d6b5d56b" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 3
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "3"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 3
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: identity
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: identity-1.3.16
+      spaceone.service: identity
+    name: identity-worker
+    namespace: cloudforet
+    resourceVersion: "6444"
+    uid: adf02c57-7de5-4a71-ac64-b7b5b5757a52
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: identity-worker
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: ea6f866e5b22398ab7cd243a4e4e9c76e54efb716d2185f3eee00c3e08e9e359
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: identity
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: identity-1.3.16
+          spaceone.service: identity-worker
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.identity
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/identity/config/config.yaml
+          image: cloudforet/identity:2.0.dev299
+          imagePullPolicy: IfNotPresent
+          name: identity-worker
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/identity/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/identity/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/identity/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/identity/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: identity-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: identity-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: identity-application-worker-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:59:15Z"
+      message: ReplicaSet "identity-worker-695f746bf5" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 3
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: inventory
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: inventory-1.3.21
+      spaceone.service: inventory
+    name: inventory
+    namespace: cloudforet
+    resourceVersion: "6448"
+    uid: 337a3fed-f995-4ac6-be9b-485959d5968a
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: inventory
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 3f7c26c45d902335074205bcad8da77eb599b79545413b0f124b62a74ac9cc57
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: inventory
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: inventory-1.3.21
+          spaceone.service: inventory
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/inventory/config/config.yaml
+          image: cloudforet/inventory:2.0.dev208
+          imagePullPolicy: IfNotPresent
+          name: inventory
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/inventory/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/inventory/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/inventory/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/inventory/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: inventory-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: inventory-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: inventory-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:38Z"
+      lastUpdateTime: "2026-01-03T03:14:26Z"
+      message: ReplicaSet "inventory-686665944" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: inventory
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: inventory-1.3.21
+      spaceone.service: inventory
+    name: inventory-scheduler
+    namespace: cloudforet
+    resourceVersion: "6450"
+    uid: 1faef774-ef85-4d7e-8ac9-a6b6ea3eb962
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: inventory-scheduler
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 7b4034d65c9afedbd9d9b6ee2de9fc026997ecc65c3cfa5e22f6886bbb7eadec
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: inventory
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: inventory-1.3.21
+          spaceone.service: inventory-scheduler
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.inventory
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/inventory/config/config.yaml
+          image: cloudforet/inventory:2.0.dev208
+          imagePullPolicy: IfNotPresent
+          name: inventory-scheduler
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/inventory/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/inventory/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/inventory/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/inventory/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: inventory-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: inventory-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: inventory-application-scheduler-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:38Z"
+      lastUpdateTime: "2026-01-03T03:14:26Z"
+      message: ReplicaSet "inventory-scheduler-bcb6c6bbb" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: inventory
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: inventory-1.3.21
+      spaceone.service: inventory
+    name: inventory-worker
+    namespace: cloudforet
+    resourceVersion: "6454"
+    uid: 1cffd555-135e-444f-b162-b605a762af11
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: inventory-worker
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 2bc60ad93a6c78b21754add6a648eb7e43c93657a51a11fc699cd5e6a4f63cdb
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: inventory
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: inventory-1.3.21
+          spaceone.service: inventory-worker
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.inventory
+          - -m
+          - /opt
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/inventory/config/config.yaml
+          image: cloudforet/inventory:2.0.dev208
+          imagePullPolicy: IfNotPresent
+          name: inventory-worker
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/inventory/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/inventory/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/inventory/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/inventory/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: inventory-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: inventory-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: inventory-application-worker-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:37Z"
+      lastUpdateTime: "2026-01-03T03:14:26Z"
+      message: ReplicaSet "inventory-worker-6fbdc69d95" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: mongodb
+      app.kubernetes.io/version: 0.1.0
+      helm.sh/chart: mongodb-0.1.0
+      spaceone.service: mongodb
+    name: mongodb
+    namespace: cloudforet
+    resourceVersion: "1545"
+    uid: 66c6c909-55af-447b-8804-e7d7c321390d
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: mongodb
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.deployment.tool: helm
+        labels:
+          app.kubernetes.io/name: mongodb
+          spaceone.service: mongodb
+      spec:
+        containers:
+        - env:
+          - name: MONGO_INITDB_ROOT_USERNAME
+            value: admin
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            value: password
+          - name: MONGO_INITDB_DATABASE
+            value: admin
+          image: mongo
+          imagePullPolicy: IfNotPresent
+          name: mongodb
+          ports:
+          - containerPort: 27017
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /data/db
+            name: mongodb-data
+          - mountPath: /docker-entrypoint-initdb.d/user.js
+            name: mongodb-user-conf
+            readOnly: true
+            subPath: user.js
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir: {}
+          name: mongodb-data
+        - configMap:
+            defaultMode: 420
+            name: mongodb-user-conf
+          name: mongodb-user-conf
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:13:28Z"
+      lastUpdateTime: "2026-01-03T03:13:28Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:13:28Z"
+      message: ReplicaSet "mongodb-9b9687588" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: monitoring
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: monitoring-1.3.25
+      spaceone.service: monitoring
+    name: monitoring
+    namespace: cloudforet
+    resourceVersion: "6464"
+    uid: 501a86ae-9954-4cd5-8de7-28305d22ea33
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: monitoring
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 3dc436233c0c7e7e6fa04ed41c4501c7b9f80ac304fe648cf1ccf8349ba48b8c
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: monitoring
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: monitoring-1.3.25
+          spaceone.service: monitoring
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/monitoring/config/config.yaml
+          image: cloudforet/monitoring:2.0.dev54
+          imagePullPolicy: IfNotPresent
+          name: monitoring
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/monitoring/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/monitoring/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/monitoring/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/monitoring/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: monitoring-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: monitoring-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: monitoring-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:39Z"
+      lastUpdateTime: "2026-01-03T03:13:24Z"
+      message: ReplicaSet "monitoring-77d4fc7779" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: monitoring
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: monitoring-1.3.25
+      spaceone.service: monitoring
+    name: monitoring-rest
+    namespace: cloudforet
+    resourceVersion: "6466"
+    uid: 7b77a149-63da-476c-bf21-ea178662013c
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: monitoring-rest
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 365f793ab599c5ffa78eefd76a5493c3cd118a9f2c80e795d736a7051cba437e
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: monitoring
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: monitoring-1.3.25
+          spaceone.service: monitoring-rest
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - rest-server
+          - spaceone.monitoring
+          - -p
+          - "8000"
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/monitoring/config/config.yaml
+          image: cloudforet/monitoring:2.0.dev54
+          imagePullPolicy: IfNotPresent
+          name: monitoring-fastapi
+          ports:
+          - containerPort: 8000
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/monitoring/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/monitoring/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/monitoring/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/monitoring/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        - image: nginx:stable
+          imagePullPolicy: IfNotPresent
+          name: monitoring-nginx
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/monitoring/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /etc/nginx/nginx.conf
+            name: rest-nginx-conf
+            readOnly: true
+            subPath: nginx.conf
+          - mountPath: /etc/nginx/conf.d
+            name: rest-nginx-proxy-conf
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: monitoring-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: monitoring-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: monitoring-application-rest-conf
+          name: application-conf
+        - configMap:
+            defaultMode: 420
+            name: monitoring-rest-nginx-conf
+          name: rest-nginx-conf
+        - configMap:
+            defaultMode: 420
+            name: monitoring-rest-nginx-proxy-conf
+          name: rest-nginx-proxy-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:36Z"
+      lastUpdateTime: "2026-01-03T03:13:32Z"
+      message: ReplicaSet "monitoring-rest-7c694c69d8" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: monitoring
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: monitoring-1.3.25
+      spaceone.service: monitoring
+    name: monitoring-scheduler
+    namespace: cloudforet
+    resourceVersion: "6469"
+    uid: 4ad780c1-26fc-44b3-af6f-94ec6bbe2d42
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: monitoring-scheduler
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 01b0f6c388fec5959c3c1a1e0bb64c0b5c3d3f7c0f9fea4e462108da58de4f0f
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: monitoring
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: monitoring-1.3.25
+          spaceone.service: monitoring-scheduler
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.monitoring
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/monitoring/config/config.yaml
+          image: cloudforet/monitoring:2.0.dev54
+          imagePullPolicy: IfNotPresent
+          name: monitoring-scheduler
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/monitoring/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/monitoring/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/monitoring/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/monitoring/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: monitoring-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: monitoring-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: monitoring-application-scheduler-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:13:24Z"
+      message: ReplicaSet "monitoring-scheduler-554cb6db8d" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: monitoring
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: monitoring-1.3.25
+      spaceone.service: monitoring
+    name: monitoring-worker
+    namespace: cloudforet
+    resourceVersion: "6471"
+    uid: 2a566db4-f8a5-4d25-ac16-a0648ea4ee17
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: monitoring-worker
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 6a4984088e68939919b13948a96f421fad9fd194e7e7d7bd1bf88f96d42536bd
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: monitoring
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: monitoring-1.3.25
+          spaceone.service: monitoring-worker
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.monitoring
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/monitoring/config/config.yaml
+          image: cloudforet/monitoring:2.0.dev54
+          imagePullPolicy: IfNotPresent
+          name: monitoring-worker
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/monitoring/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/monitoring/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/monitoring/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/monitoring/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: monitoring-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: monitoring-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: monitoring-application-worker-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:37Z"
+      lastUpdateTime: "2026-01-03T03:13:24Z"
+      message: ReplicaSet "monitoring-worker-5d74b6fcd6" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: notification
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: notification-1.3.16
+      spaceone.service: notification
+    name: notification
+    namespace: cloudforet
+    resourceVersion: "6483"
+    uid: 8ee867cc-4a69-4471-aa61-c963892d43bc
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: notification
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 6e65a97da5892282ab6caf5f895ecebd90349f1635dcbc54961a0cdc77145fef
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: notification
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: notification-1.3.16
+          spaceone.service: notification
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/notification/config/config.yaml
+          image: cloudforet/notification:2.0.dev27
+          imagePullPolicy: IfNotPresent
+          name: notification
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/notification/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/notification/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/notification/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/notification/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: notification-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: notification-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: notification-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:39Z"
+      lastUpdateTime: "2026-01-03T03:13:57Z"
+      message: ReplicaSet "notification-6b77b5fbb4" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: notification
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: notification-1.3.16
+      spaceone.service: notification
+    name: notification-scheduler
+    namespace: cloudforet
+    resourceVersion: "6486"
+    uid: a3c0e9bf-d26b-4921-abf9-5622d8e79ba0
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: notification-scheduler
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 83e4d3cb1981a7c4bdc55c8bdfa7f1af084ed0252a1bd9d99d5a9dec9eb6b250
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: notification
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: notification-1.3.16
+          spaceone.service: notification-scheduler
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.notification
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/notification/config/config.yaml
+          image: cloudforet/notification:2.0.dev27
+          imagePullPolicy: IfNotPresent
+          name: notification-scheduler
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/notification/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/notification/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/notification/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/notification/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: notification-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: notification-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: notification-application-scheduler-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:39Z"
+      lastUpdateTime: "2026-01-03T03:13:57Z"
+      message: ReplicaSet "notification-scheduler-67c4c4bf4" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: notification
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: notification-1.3.16
+      spaceone.service: notification
+    name: notification-worker
+    namespace: cloudforet
+    resourceVersion: "6488"
+    uid: a1e7a69d-9486-44cf-90cb-d9374c3fef2e
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: notification-worker
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: cf5070487eb3d4c419721d1afe0256fe1b876ca76cbdd1a80beebf49058d55f1
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: notification
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: notification-1.3.16
+          spaceone.service: notification-worker
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.notification
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/notification/config/config.yaml
+          image: cloudforet/notification:2.0.dev27
+          imagePullPolicy: IfNotPresent
+          name: notification-worker
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/notification/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/notification/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/notification/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/notification/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: notification-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: notification-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: notification-application-worker-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:13:57Z"
+      message: ReplicaSet "notification-worker-79464566d9" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: plugin
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: plugin-1.3.11
+      spaceone.service: plugin
+    name: plugin
+    namespace: cloudforet
+    resourceVersion: "6492"
+    uid: d9d21ec1-3871-4a1e-8670-b990ace10303
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: plugin
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: b77c67a6516af62ad8ad1c16d5f42473db37ee85ddd53ca44c46a28b1fdefb70
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: plugin
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: plugin-1.3.11
+          spaceone.service: plugin
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/plugin/config/config.yaml
+          image: cloudforet/plugin:2.0.dev16
+          imagePullPolicy: IfNotPresent
+          name: plugin
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/plugin/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/plugin/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/plugin/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/plugin/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: plugin-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: plugin-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: plugin-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:39Z"
+      lastUpdateTime: "2026-01-03T03:14:22Z"
+      message: ReplicaSet "plugin-7c68b948f5" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: plugin
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: plugin-1.3.11
+      spaceone.service: plugin
+    name: plugin-scheduler
+    namespace: cloudforet
+    resourceVersion: "6514"
+    uid: c7ca3394-75ba-4468-a218-ac18f450cbeb
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: plugin-scheduler
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 6b969bcb605c18925dcc6f80d940acaf76bccaf89cff2f4df0c484fcc32895ec
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: plugin
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: plugin-1.3.11
+          spaceone.service: plugin-scheduler
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.plugin
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/plugin/config/config.yaml
+          image: cloudforet/plugin:2.0.dev16
+          imagePullPolicy: IfNotPresent
+          name: plugin-scheduler
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/plugin/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/plugin/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/plugin/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/plugin/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: plugin-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: plugin-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: plugin-application-scheduler-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:14:22Z"
+      message: ReplicaSet "plugin-scheduler-7db47bfdb8" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:57Z"
+      lastUpdateTime: "2026-01-03T04:25:57Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: plugin
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: plugin-1.3.11
+      spaceone.service: plugin
+    name: plugin-worker
+    namespace: cloudforet
+    resourceVersion: "6517"
+    uid: d7389209-c3a4-4d57-a0d6-efe1c880438e
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: plugin-worker
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: f153b505a208d77377fd70db0c9a0a97667b89c189d8d627c70ccce515d6c787
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: plugin
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: plugin-1.3.11
+          spaceone.service: plugin-worker
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.plugin
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/plugin/config/config.yaml
+          image: cloudforet/plugin:2.0.dev16
+          imagePullPolicy: IfNotPresent
+          name: plugin-worker
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/plugin/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/plugin/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/plugin/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/plugin/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: plugin-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: plugin-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: plugin-application-worker-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:14:22Z"
+      message: ReplicaSet "plugin-worker-6977f7f577" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:57Z"
+      lastUpdateTime: "2026-01-03T04:25:57Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: redis
+      app.kubernetes.io/version: 0.1.0
+      helm.sh/chart: redis-0.1.0
+      spaceone.service: redis
+    name: redis
+    namespace: cloudforet
+    resourceVersion: "6497"
+    uid: e8797e73-e603-42e1-a0b1-9c0fc6e44229
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: redis
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.deployment.tool: helm
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: redis
+          app.kubernetes.io/version: 0.1.0
+          helm.sh/chart: redis-0.1.0
+          spaceone.service: redis
+      spec:
+        containers:
+        - image: redis
+          imagePullPolicy: IfNotPresent
+          name: redis
+          ports:
+          - containerPort: 6379
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:13:36Z"
+      message: ReplicaSet "redis-76dbfbf6d6" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:56Z"
+      lastUpdateTime: "2026-01-03T04:25:56Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: repository
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: repository-1.3.11
+      spaceone.service: repository
+    name: repository
+    namespace: cloudforet
+    resourceVersion: "6499"
+    uid: 3a7a4772-9a21-42fb-8e0d-4212c50f6db4
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: repository
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 5174966be22c4991210ea17a881cd6eae031804dc91d1558f5e7ccba31ace604
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: repository
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: repository-1.3.11
+          spaceone.service: repository
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/repository/config/config.yaml
+          image: cloudforet/repository:2.0.dev60
+          imagePullPolicy: IfNotPresent
+          name: repository
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/repository/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/repository/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/repository/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/repository/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: repository-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: repository-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: repository-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:37Z"
+      lastUpdateTime: "2026-01-03T03:14:08Z"
+      message: ReplicaSet "repository-6c48b54986" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:57Z"
+      lastUpdateTime: "2026-01-03T04:25:57Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: search
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: search-1.0.1
+      spaceone.service: search
+    name: search
+    namespace: cloudforet
+    resourceVersion: "6501"
+    uid: 0924a54a-3d81-4e91-b301-5afd4dcd9b42
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: search
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: b26bf743fc020f40995948762326379bfa544454193c25d7e22adbe25d099d96
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: search
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: search-1.0.1
+          spaceone.service: search
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/search/config/config.yaml
+          image: cloudforet/search:0.1.dev5
+          imagePullPolicy: IfNotPresent
+          name: search
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/search/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/search/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/search/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/search/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: search-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: search-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: search-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:36Z"
+      lastUpdateTime: "2026-01-03T03:14:34Z"
+      message: ReplicaSet "search-89fb5fff9" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:57Z"
+      lastUpdateTime: "2026-01-03T04:25:57Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: secret
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: secret-1.3.13
+      spaceone.service: secret
+    name: secret
+    namespace: cloudforet
+    resourceVersion: "6503"
+    uid: 9db833a6-aca5-4c22-a23d-895f89fa4ad9
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: secret
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 04f9cf045fcce835580f5f56c489a622fc942f97359dd8b8e7d6c67c2e4d7005
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: secret
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: secret-1.3.13
+          spaceone.service: secret
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/secret/config/config.yaml
+          image: cloudforet/secret:2.0.dev28
+          imagePullPolicy: IfNotPresent
+          name: secret
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/secret/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/secret/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/secret/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/secret/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: secret-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: secret-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: secret-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:13:35Z"
+      message: ReplicaSet "secret-c46996684" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:57Z"
+      lastUpdateTime: "2026-01-03T04:25:57Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      spaceone.service: spacectl
+    name: spacectl
+    namespace: cloudforet
+    resourceVersion: "6506"
+    uid: 8467ddca-0586-4f22-baa7-699a2a1d9b46
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: spacectl
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.deployment.tool: helm
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: spacectl
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: spacectl-1.0.8
+          spaceone.service: spacectl
+      spec:
+        containers:
+        - image: cloudforet/spacectl:2.0.9
+          imagePullPolicy: IfNotPresent
+          name: spacectl
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /root/.spaceone/
+            name: spacectl-data
+          - mountPath: /root/default.yaml
+            name: environment-conf
+            readOnly: true
+            subPath: default.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: spacectl-environment-conf
+          name: environment-conf
+        - emptyDir: {}
+          name: spacectl-data
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:13:49Z"
+      message: ReplicaSet "spacectl-7dd4cc5848" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:57Z"
+      lastUpdateTime: "2026-01-03T04:25:57Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: statistics
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: statistics-1.3.18
+      spaceone.service: statistics
+    name: statistics
+    namespace: cloudforet
+    resourceVersion: "6508"
+    uid: fc98fac4-f149-4a09-88fd-d321fd334dc8
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: statistics
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 3c861a529a6088c01b7144a5259f97938596121ddbbbcf312a811dbeaff12428
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: statistics
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: statistics-1.3.18
+          spaceone.service: statistics
+      spec:
+        containers:
+        - env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/statistics/config/config.yaml
+          image: cloudforet/statistics:2.0.dev23
+          imagePullPolicy: IfNotPresent
+          name: statistics
+          ports:
+          - containerPort: 50051
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/statistics/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/statistics/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/statistics/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/statistics/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: statistics-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: statistics-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: statistics-application-grpc-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:38Z"
+      lastUpdateTime: "2026-01-03T03:13:18Z"
+      message: ReplicaSet "statistics-cb79ddcfb" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:57Z"
+      lastUpdateTime: "2026-01-03T04:25:57Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: statistics
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: statistics-1.3.18
+      spaceone.service: statistics
+    name: statistics-scheduler
+    namespace: cloudforet
+    resourceVersion: "6510"
+    uid: 8c74a812-7c20-4bf2-a33d-b2c9b0fbc4d3
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: statistics-scheduler
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 6efc531f042d5b00d29b7f09fc78e1bed2cd472d17c073534d0a4fd2f1871e81
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: statistics
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: statistics-1.3.18
+          spaceone.service: statistics-scheduler
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.statistics
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/statistics/config/config.yaml
+          image: cloudforet/statistics:2.0.dev23
+          imagePullPolicy: IfNotPresent
+          name: statistics-scheduler
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/statistics/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/statistics/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/statistics/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/statistics/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: statistics-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: statistics-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: statistics-application-scheduler-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:13:18Z"
+      message: ReplicaSet "statistics-scheduler-7db9f46658" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:57Z"
+      lastUpdateTime: "2026-01-03T04:25:57Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T03:12:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: statistics
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: statistics-1.3.18
+      spaceone.service: statistics
+    name: statistics-worker
+    namespace: cloudforet
+    resourceVersion: "6512"
+    uid: 7cd0202f-4fc6-4fcd-b037-82ef8ba955ff
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: statistics-worker
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: 72dbbded96af0d87575884aff28295313c367251b9358f2acfc1d56939259737
+          spaceone.database-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+          spaceone.deployment.tool: helm
+          spaceone.shared-flag: 52133ddfcd583280388a8bbfb67a417b6b660f75bc63ec1b01beec811d4498ef
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: statistics
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: statistics-1.3.18
+          spaceone.service: statistics-worker
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.statistics
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/statistics/config/config.yaml
+          image: cloudforet/statistics:2.0.dev23
+          imagePullPolicy: IfNotPresent
+          name: statistics-worker
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/statistics/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/statistics/config/database.yaml
+            name: database-conf
+            readOnly: true
+            subPath: database.yaml
+          - mountPath: /opt/spaceone/statistics/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/statistics/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: statistics-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: statistics-database-conf
+          name: database-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: statistics-application-worker-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T03:12:35Z"
+      lastUpdateTime: "2026-01-03T03:13:18Z"
+      message: ReplicaSet "statistics-worker-7fb7bd948f" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-01-03T04:25:57Z"
+      lastUpdateTime: "2026-01-03T04:25:57Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"1","meta.helm.sh/release-name":"cloudforet","meta.helm.sh/release-namespace":"cloudforet"},"creationTimestamp":"2026-01-03T03:12:35Z","generation":1,"labels":{"app.kubernetes.io/instance":"cloudforet","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"supervisor","app.kubernetes.io/version":"1.x.y","helm.sh/chart":"supervisor-1.1.15","spaceone.service":"supervisor"},"name":"supervisor-scheduler","namespace":"cloudforet","resourceVersion":"4271","uid":"a05ce580-e526-4f44-b2df-664a85c54997"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":3,"selector":{"matchLabels":{"spaceone.service":"supervisor-scheduler"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"annotations":{"spaceone.application-flag":"a01289b11b4e293aa7898bd14f545db011d1c4c931b535c2f107c6a8303b10d7","spaceone.deployment.tool":"helm"},"labels":{"app.kubernetes.io/instance":"cloudforet","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"supervisor","app.kubernetes.io/version":"1.x.y","helm.sh/chart":"supervisor-1.1.15","spaceone.service":"supervisor-scheduler"}},"spec":{"containers":[{"command":["spaceone","run","scheduler","spaceone.supervisor"],"env":[{"name":"SPACEONE_CONFIG_FILE","value":"/opt/spaceone/supervisor/config/config.yaml"}],"image":"cloudforet/supervisor:2.0.dev19","imagePullPolicy":"IfNotPresent","name":"supervisor-scheduler","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/opt/spaceone/supervisor/config/config.yaml","name":"default-conf","readOnly":true,"subPath":"config.yaml"},{"mountPath":"/etc/localtime","name":"timezone"},{"mountPath":"/var/log/spaceone","name":"log-volume"},{"mountPath":"/opt/spaceone/supervisor/config/shared.yaml","name":"shared-conf","readOnly":true,"subPath":"shared.yaml"},{"mountPath":"/opt/spaceone/supervisor/config/application.yaml","name":"application-conf","readOnly":true,"subPath":"application.yaml"}]},{"image":"redis:latest","imagePullPolicy":"Always","name":"redis","ports":[{"containerPort":6379,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File"}],"dnsPolicy":"ClusterFirst","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30,"volumes":[{"configMap":{"defaultMode":420,"name":"supervisor-conf"},"name":"default-conf"},{"configMap":{"defaultMode":420,"name":"shared-conf"},"name":"shared-conf"},{"configMap":{"defaultMode":420,"name":"supervisor-application-scheduler-conf"},"name":"application-conf"},{"hostPath":{"path":"/usr/share/zoneinfo/Asia/Seoul","type":""},"name":"timezone"},{"emptyDir":{},"name":"log-volume"}]}}},"status":{"conditions":[{"lastTransitionTime":"2026-01-03T03:12:42Z","lastUpdateTime":"2026-01-03T03:12:42Z","message":"Deployment does not have minimum availability.","reason":"MinimumReplicasUnavailable","status":"False","type":"Available"},{"lastTransitionTime":"2026-01-03T04:09:45Z","lastUpdateTime":"2026-01-03T04:09:45Z","message":"ReplicaSet \"supervisor-scheduler-7dc465c7df\" has timed out progressing.","reason":"ProgressDeadlineExceeded","status":"False","type":"Progressing"}],"observedGeneration":1,"replicas":1,"unavailableReplicas":1,"updatedReplicas":1}}
+      meta.helm.sh/release-name: cloudforet
+      meta.helm.sh/release-namespace: cloudforet
+    creationTimestamp: "2026-01-03T05:00:08Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: cloudforet
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: supervisor
+      app.kubernetes.io/version: 1.x.y
+      helm.sh/chart: supervisor-1.1.15
+      spaceone.service: supervisor
+    name: supervisor-scheduler
+    namespace: cloudforet
+    resourceVersion: "7838"
+    uid: 049231fc-fa95-47a8-b268-5ecf7513cab8
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        spaceone.service: supervisor-scheduler
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          spaceone.application-flag: a01289b11b4e293aa7898bd14f545db011d1c4c931b535c2f107c6a8303b10d7
+          spaceone.deployment.tool: helm
+        labels:
+          app.kubernetes.io/instance: cloudforet
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: supervisor
+          app.kubernetes.io/version: 1.x.y
+          helm.sh/chart: supervisor-1.1.15
+          spaceone.service: supervisor-scheduler
+      spec:
+        containers:
+        - command:
+          - spaceone
+          - run
+          - scheduler
+          - spaceone.supervisor
+          env:
+          - name: SPACEONE_CONFIG_FILE
+            value: /opt/spaceone/supervisor/config/config.yaml
+          image: cloudforet/supervisor:2.0.dev19
+          imagePullPolicy: IfNotPresent
+          name: supervisor-scheduler
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/spaceone/supervisor/config/config.yaml
+            name: default-conf
+            readOnly: true
+            subPath: config.yaml
+          - mountPath: /etc/localtime
+            name: timezone
+          - mountPath: /var/log/spaceone
+            name: log-volume
+          - mountPath: /opt/spaceone/supervisor/config/shared.yaml
+            name: shared-conf
+            readOnly: true
+            subPath: shared.yaml
+          - mountPath: /opt/spaceone/supervisor/config/application.yaml
+            name: application-conf
+            readOnly: true
+            subPath: application.yaml
+        - image: redis:latest
+          imagePullPolicy: Always
+          name: redis
+          ports:
+          - containerPort: 6379
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: supervisor-conf
+          name: default-conf
+        - configMap:
+            defaultMode: 420
+            name: shared-conf
+          name: shared-conf
+        - configMap:
+            defaultMode: 420
+            name: supervisor-application-scheduler-conf
+          name: application-conf
+        - hostPath:
+            path: /usr/share/zoneinfo/Asia/Seoul
+            type: ""
+          name: timezone
+        - emptyDir: {}
+          name: log-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-01-03T05:06:40Z"
+      lastUpdateTime: "2026-01-03T05:06:40Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2026-01-03T05:00:08Z"
+      lastUpdateTime: "2026-01-03T05:06:40Z"
+      message: ReplicaSet "supervisor-scheduler-7dc465c7df" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+kind: List
+metadata:
+  resourceVersion: ""

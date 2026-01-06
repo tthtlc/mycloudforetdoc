@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2026-01-03T03:11:45Z"
+  labels:
+    kubernetes.io/metadata.name: cloudforet-plugin
+  name: cloudforet-plugin
+  resourceVersion: "730"
+  uid: 0bbed807-20b2-4abd-a26f-5698c0ce03d6
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

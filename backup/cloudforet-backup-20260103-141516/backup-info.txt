@@ -1,0 +1,19 @@
+Cloudforet Kubernetes Backup
+Created: Sat Jan  3 02:15:18 PM +08 2026
+Hostname: tthtlc
+Kubernetes Version: Client Version: v1.34.1
+Kustomize Version: v5.7.1
+Server Version: v1.34.2-rc2+k3s1
+
+Namespaces backed up:
+- cloudforet
+- cloudforet-plugin
+
+Components:
+- Kubernetes manifests (deployments, services, configmaps, secrets)
+- MongoDB database dump
+
+To restore on a new machine:
+1. Copy this entire directory to the new machine
+2. Ensure kubectl is configured to connect to the target cluster
+3. Run: ./restore-cloudforet.sh
